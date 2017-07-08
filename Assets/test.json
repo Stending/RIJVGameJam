@@ -1,0 +1,66 @@
+{ 	"contacts":[
+		{ 	"name" : "Camille",
+			"numero" : "0605369952",
+			"message_sections": [
+				{	"id": "salutations1"
+					"messages": [
+						{	"msg" : "Bonjour !",
+							"durée" : 1.0},
+						{	"msg" : "ça va ?",
+							"durée" : 2.0},
+						{	"msg" : "t'es là ?",
+							"durée" : 5.0}
+					],
+					"choix":[
+						{	
+							"texte": "Oui, pardon, j'étais occupé",
+							"messages" : [
+								{"msg" : "Oui !"},
+								{"msg" : "Désolé"},
+								{"msg" : "J'étais occupé"},
+							],
+							"message_section_suivante": "reponse_salutation1"
+						},
+						{	
+							"texte": "Oui mais je dois y aller",
+							"messages" : [
+								{"msg" : "Oui mais j'ai pas le temps."}
+							]
+						}
+					]
+				},
+				
+				{	"id": "reponse_salutation1"
+					"messages": [
+						{	"msg" : "Du coup !",
+							"durée" : 1.0},
+						{	"msg" : "ça va ?",
+							"durée" : 2.0}
+					],
+					"choix":[
+						{	
+							"texte": "oui et toi ?",
+							"messages" : [
+								{"msg" : "bah oui !"},
+								{"msg" : "et toi ? ^^"},
+							],
+							"message_section_suivante": "test2"
+						},
+						{	
+							"texte": "pas trop...",
+							"messages" : [
+								{"msg" : "Pas trop trop..."},
+								{"msg" : "Mais bon tu sais ce que c'est ^^"},
+							]
+						}
+					]
+				}
+				
+			]
+		
+		
+	]
+	
+}
+	
+	
