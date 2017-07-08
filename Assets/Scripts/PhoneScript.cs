@@ -5,7 +5,12 @@ using UnityEngine;
 
 public class PhoneScript : MonoBehaviour {
 
-    public string mode = "ContactMenu";
+    public string mode = "Desktop";
+
+
+    public Animator NavBarAnim;
+    public Animator ContactMenuAnim;
+    public Animator MessageMenuAnim;
 
     public Object ContactButtonPrefab;
 
@@ -52,6 +57,21 @@ public class PhoneScript : MonoBehaviour {
         return null;
     }
 
+    public void LoadContactMenu()
+    {
+        if (mode == "Desktop")
+        {
+            NavBarAnim.SetBool("Active", false);
+            ContactMenuAnim.SetBool("Active", true);
+            mode = "ContactMenu";
+        }
+    }
+    public void HomeButton()
+    {
+        NavBarAnim.SetBool("Active", true);
+        ContactMenuAnim.SetBool("Active", false);
+        mode = "Desktop";
+    }
 
     public void LoadConversation(int i)
     {
