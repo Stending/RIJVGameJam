@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 06a4d69adcf88bb43a610a48fa4b5178
-timeCreated: 1499530156
+guid: 7aaac431f1aecf54688a9622118cc569
+timeCreated: 1499551617
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Props:Props:Props:Props:polySurface15
+    4300000: PenduleCat
     9500000: //RootNode
   materials:
     importMaterials: 1

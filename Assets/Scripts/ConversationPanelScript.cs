@@ -76,7 +76,10 @@ public class ConversationPanelScript : MonoBehaviour {
         while (CurrentContact.SmsStory.canContinue)
         {
             string text = CurrentContact.SmsStory.Continue().Trim();
-            if(text.StartsWith("MSG|")
+            if (text.StartsWith("MSG|"))
+            {
+                
+            }
             
         }
 
