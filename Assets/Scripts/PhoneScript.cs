@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PhoneScript : MonoBehaviour {
 
     public string mode = "Desktop";
 
+    public Color MainColor = new Color32(247, 186, 193, 255);
 
     public Animator NavBarAnim;
     public Animator ContactMenuAnim;
@@ -18,9 +20,16 @@ public class PhoneScript : MonoBehaviour {
     public List<Contact> Contacts;
     public Transform ContactListTransform;
 
+    public List<Text> TextsToColor;
+
     // Use this for initialization
 	void Start () {
         LoadData();
+
+        foreach(Text t in TextsToColor)
+        {
+            t.color = MainColor;
+        }
 	}
 	
 	// Update is called once per frame
@@ -35,6 +44,7 @@ public class PhoneScript : MonoBehaviour {
         foreach(Contact c in Contacts)
         {
             InstantiateContact(i, c);
+            c.Init();
             i++;
         }
     }

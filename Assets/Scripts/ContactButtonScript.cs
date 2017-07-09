@@ -22,6 +22,10 @@ public class ContactButtonScript : MonoBehaviour {
 
     public void SetInfos(int id, string name, string phoneNumber, PhoneScript ps)
     {
+        if (id % 2 == 0)
+        {
+            this.GetComponent<Image>().color = new Color(0.9f, 0.9f, 0.9f, 1.0f);
+        }
         this.id = id;
         NameText.text = name;
         PhoneNumberText.text = phoneNumber;

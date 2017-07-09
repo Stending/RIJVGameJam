@@ -16,16 +16,10 @@ public class Contact{
     public Conversation Conv;
         
 
-	// Use this for initialization
-	void Start () {
-        Conv = new Conversation();
+	public void Init () {
+    //    Conv = new Conversation();
         SmsStory = new Story(inkJSONAsset.text);
-        
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 }
