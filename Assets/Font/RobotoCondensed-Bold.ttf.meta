@@ -1,0 +1,26 @@
+fileFormatVersion: 2
+guid: ff360ca4c1571f946ab4900b6a8d99c8
+timeCreated: 1499597052
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Roboto Condensed
+  fontNames:
+  - Roboto Condensed
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 47f91690a87700141a08d17794d9e9b4, type: 3}
+  - {fileID: 12800000, guid: cfb180835452edd45a42aa52a2e60fad, type: 3}
+  - {fileID: 12800000, guid: 311303b65e06bcc45beee1c8a4cce59f, type: 3}
+  - {fileID: 12800000, guid: 2a23bf0757c9d3f4ea8a9683eeaa8420, type: 3}
+  - {fileID: 12800000, guid: d90aa868abf2aa74c827435161cbf606, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

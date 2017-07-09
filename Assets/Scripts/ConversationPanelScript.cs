@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Ink.Runtime;
 
 public class ConversationPanelScript : MonoBehaviour {
 
@@ -9,8 +10,13 @@ public class ConversationPanelScript : MonoBehaviour {
 
     public Text ContactName;
 
-    public Object BulleAuthorPrefab;
-    public Object BulleCorrespondantPrefab;
+    public UnityEngine.Object BulleAuthorPrefab;
+    public UnityEngine.Object BulleCorrespondantPrefab;
+
+    public UnityEngine.Object ChoicePanelPrefab;
+
+    public ChoicePanel CurrentChoicePanel;
+
     public RectTransform MessagePanelTransform;
 
     public List<BulleScript> Bulles;
@@ -52,6 +58,7 @@ public class ConversationPanelScript : MonoBehaviour {
         ResetConv();
         CurrentContact = cont;
         LoadOldConv(cont.Conv);
+        StartCoroutine(ContinueStory());
     }
 
     public void ResetConv()
@@ -73,17 +80,82 @@ public class ConversationPanelScript : MonoBehaviour {
 
     public IEnumerator ContinueStory()
     {
+        bool retrievingSms = false;
+        string newSms = "";
+        float duration = 0.0f;
+        bool currentAuthor = false;
+
         while (CurrentContact.SmsStory.canContinue)
         {
+            //GENERATION DES SMS
             string text = CurrentContact.SmsStory.Continue().Trim();
-            if (text.StartsWith("MSG|"))
+            if (text == " " || text == "" || text == "\n")
+                continue;
+            if (text.StartsWith("MSG;"))
             {
-                
+                if (retrievingSms)
+                {
+                    NewBulle(currentAuthor, newSms);
+                    retrievingSms = false;
+                    yield return new WaitForSeconds(duration);
+                }
+                string[] strs = text.Split(';');
+                currentAuthor = (strs[1] == "A");
+                duration = float.Parse(strs[2]);
+                retrievingSms = true;
+                newSms = strs[3];
             }
-            
+            else
+            {
+                if (retrievingSms)
+                {
+                    newSms += "\n" + text;
+                }
+                else
+                {
+                    newSms = text;
+                    NewBulle(true, newSms);
+                    yield return new WaitForSeconds(2.0f);
+                }
+            }
         }
 
-        yield return null;
+        //GENERATION DU DERNIER SMS
+        if (retrievingSms)
+        {
+            NewBulle(currentAuthor, newSms);
+            retrievingSms = false;
+            yield return new WaitForSeconds(duration);
+        }
+
+
+        print("On génère les choix");
+        //GENERATION DES CHOIX
+        if (CurrentContact.SmsStory.currentChoices.Count > 0)
+        {
+            CurrentChoicePanel = InstantiateChoicePanel();
+            for (int i = 0; i < CurrentContact.SmsStory.currentChoices.Count; i++)
+            {
+                Choice choice = CurrentContact.SmsStory.currentChoices[i];
+                CurrentChoicePanel.CreateChoice(choice.text.Trim(), choice);
+            }
+            CurrentChoicePanel.ChoiceSelected += SelectChoice;
+        }
     }
-    
+
+
+    public void SelectChoice(Choice choice)
+    {
+        CurrentContact.SmsStory.ChooseChoiceIndex(choice.index);
+        Destroy(CurrentChoicePanel.gameObject);
+        //TODO animation
+        CurrentChoicePanel = null;
+        StartCoroutine(ContinueStory());
+    }
+
+    public ChoicePanel InstantiateChoicePanel()
+    {
+        GameObject go = Instantiate(ChoicePanelPrefab, MessagePanelTransform) as GameObject;
+        return go.GetComponent<ChoicePanel>();
+    }
 }
