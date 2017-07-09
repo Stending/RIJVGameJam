@@ -20,11 +20,12 @@ public class ContactButtonScript : MonoBehaviour {
 		
 	}
 
-    public void SetInfos(int id, string name, string phoneNumber)
+    public void SetInfos(int id, string name, string phoneNumber, PhoneScript ps)
     {
         this.id = id;
         NameText.text = name;
         PhoneNumberText.text = phoneNumber;
+        CurrentPhone = ps;
     }
 
     public void OpenConversation()

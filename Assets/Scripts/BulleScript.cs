@@ -21,7 +21,7 @@ public class BulleScript : MonoBehaviour {
     public void SetMessage(string msg)
     {
         int lastBackspace = 0;
-        string currentLine = msg.Substring(lastBackspace, lastBackspace+ LINE_SIZE);
+        string currentLine = msg.Substring(lastBackspace, Mathf.Min(msg.Length, lastBackspace+ LINE_SIZE));
         while (currentLine.Length > LINE_SIZE - 1)
         {
             print("On traite la ligne : " + currentLine);
