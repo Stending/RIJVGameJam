@@ -1,5 +1,4 @@
-- Message numéro masqué : 
-MSG;B;2.0;Sale sorcière , tu pue le pipi de chat
+MSG;B;2.5;Sale sorcière , tu pue le pipi de chat
 
 *	[Qui êtes vous ?] ...
 *	[Insulter en retour] ...
