@@ -6,6 +6,10 @@ using Ink.Runtime;
 
 public class ConversationPanelScript : MonoBehaviour {
 
+
+    public delegate void ClassicEvent();
+    public event ClassicEvent StoryFinished;
+
     public Contact CurrentContact;
 
     public Text ContactName;
@@ -55,6 +59,7 @@ public class ConversationPanelScript : MonoBehaviour {
     public void LoadContact(Contact cont)
     {
         ContactName.text = cont.Name;
+        StoryFinished = null;
         ResetConv();
         CurrentContact = cont;
         LoadOldConv(cont.Conv);
@@ -140,6 +145,12 @@ public class ConversationPanelScript : MonoBehaviour {
                 CurrentChoicePanel.CreateChoice(choice.text.Trim(), choice);
             }
             CurrentChoicePanel.ChoiceSelected += SelectChoice;
+        }
+        else
+        {
+            //STORY TERMINÉE
+            StoryFinished();
+
         }
     }
 

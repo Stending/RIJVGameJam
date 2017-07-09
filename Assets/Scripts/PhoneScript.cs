@@ -6,9 +6,16 @@ using UnityEngine.UI;
 
 public class PhoneScript : MonoBehaviour {
 
+    public delegate void ClassicEvent();
+    public event ClassicEvent PhoneFinished;
+
     public string mode = "Desktop";
 
     public Color MainColor = new Color32(247, 186, 193, 255);
+
+    public Animator PhoneAnim;
+
+    public int NextContact = 0;
 
     public Animator NavBarAnim;
     public Animator ContactMenuAnim;
@@ -22,6 +29,8 @@ public class PhoneScript : MonoBehaviour {
 
     public List<Text> TextsToColor;
 
+
+    public Transform CameraTransform;
     // Use this for initialization
 	void Start () {
         LoadData();
@@ -34,9 +43,10 @@ public class PhoneScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        //this.transform.LookAt(CameraTransform);
 		
 	}
-
 
     public void LoadData()
     {
@@ -80,22 +90,63 @@ public class PhoneScript : MonoBehaviour {
     }
     public void LoadConversation(int contactId)
     {
+        
         if (mode == "ContactMenu")
         {
-            NavBarAnim.SetBool("Active", false);
-            ContactMenuAnim.SetBool("Active", false);
-            MessageMenuAnim.SetBool("Active", true);
-            ConversationPanel.LoadContact(Contacts[contactId]);
-
+            if (contactId == NextContact)
+            {
+                NavBarAnim.SetBool("Active", false);
+                ContactMenuAnim.SetBool("Active", false);
+                MessageMenuAnim.SetBool("Active", true);
+                ConversationPanel.LoadContact(Contacts[contactId]);
+                ConversationPanel.StoryFinished += SwitchNextContact;
+            }
         }
-
     }
+
+    public void SwitchNextContact()
+    {
+        NextContact++;
+        if(NextContact >= Contacts.Count)
+        {
+            PhoneFinished();
+        }
+    }
+
     public void HomeButton()
     {
         NavBarAnim.SetBool("Active", true);
         ContactMenuAnim.SetBool("Active", false);
         MessageMenuAnim.SetBool("Active", false);
         mode = "Desktop";
+    }
+
+
+    public void ComeFromLeft()
+    {
+        PhoneAnim.SetBool("Left", true);
+        PhoneAnim.SetBool("Active", true);
+    }
+
+    public void ComeFromRight()
+    {
+        PhoneAnim.SetBool("Left", false);
+        PhoneAnim.SetBool("Active", true);
+    }
+
+    public void LeaveToBottom()
+    {
+        PhoneAnim.SetBool("Active", false);
+    }
+
+    public void DisableIn(float sec)
+    {
+        Invoke("Disable", sec);
+    }
+
+    private void Disable()
+    {
+        this.gameObject.SetActive(false);
     }
 
 }
