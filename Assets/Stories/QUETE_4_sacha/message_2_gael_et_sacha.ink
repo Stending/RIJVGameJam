@@ -1,3 +1,4 @@
+VAR mechant = 0
 * [Salut] MSG;A;3.0;Slt, est ce ke je pe te parler d'un truc ?
 -> welcome
 * [Ne pas envoyer de message]
@@ -18,11 +19,11 @@
 ->findeconversation
 
 === blanche ===
-- MSG;B;2.0;Je suis vraiment désolé de ce ke jai fait l'autre jour, je n'avais pas l'impression d'harcelé Spitz, pour moi s'était juste des blagues, du trolling
-* [Remords] Je suis vraiment dsl de ce ke jai fait l'autre jour, je navai pas l'impression d'harcelé Spitz, pour moi s'était just des blagues koi, du trolling
--> findeconversation2
+- MSG;B;2.0; Je t'écoute
+* [Remords] Je suis vraiment dsl de ce ke jai fait l'autre jour, je navai pas l'impression de faire du mal à Mme Spitz, pour moi s'été juste des blagues koi, du trolling
+-> fin1
 * [Ne pas répondre] MSG;A;4.0;
--> findeconversation2
+-> fin1
 
 === findeconversation ===
 - MSG;B;2.0;C'est bien prend le temps d'y réfléchir, bon week end ;)
@@ -39,10 +40,29 @@
 ->findeconversation3
 
 === cpaspareil ===
-- MSG;B;3.0;Ecoute j'ai vraiment pas envie d'avoir cette conversation avec toi, si tu as des questions demande à tes parents
--> END
+- MSG;B;3.0;Ecoute j'ai vraiment pas envie d'avoir cette conversation avec toi, si tu as des questions demande à tes parents.
+~ mechant = 1
+
+* [Parler de Blanche] MSG;A;3.0;Et je voulais parler ac toi de ce ki c passé avec Mme Spitz.
+-> blanche
 
 === findeconversation3 ===
 - MSG;B;3.0;Vraiment ne t'en fait pas, tu peux réparer ton erreur, j'en suis certain.
 * [Merci] à plus tard
 -> END
+
+=== findeconversationbad ===
+- MSG;B;3.0;Je pense que tu devrais en parler avec elle un jour histoire de remettre les choses à plat, je pense aussi qu'en générale tu devrais réfléchir à la manière dont tu juges un peu vite les gens...
+* [Merci] à plus tard
+-> END
+* [Ne pas répondre] MSG;A;4.0;
+->END
+
+=== fin1 ===
+{ mechant == 1:
+    -> findeconversationbad
+    - else:
+    -> findeconversation2
+}
+
+->END

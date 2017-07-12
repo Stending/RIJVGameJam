@@ -9,10 +9,12 @@ public class ContactButtonScript : MonoBehaviour {
     public Text NameText;
     public Text PhoneNumberText;
 
+    public Image ActiveIconImage;
+
     private PhoneScript CurrentPhone;
     // Use this for initialization
     void Start () {
-		
+        SetActiveImageColor(CurrentPhone.MainColor);
 	}
 	
 	// Update is called once per frame
@@ -30,6 +32,20 @@ public class ContactButtonScript : MonoBehaviour {
         NameText.text = name;
         PhoneNumberText.text = phoneNumber;
         CurrentPhone = ps;
+    }
+
+    public void Highlight()
+    {
+        ActiveIconImage.gameObject.SetActive(true);
+    }
+    public void Unhighlight()
+    {
+        ActiveIconImage.gameObject.SetActive(false);
+    }
+
+    public void SetActiveImageColor(Color col)
+    {
+        ActiveIconImage.color = col;
     }
 
     public void OpenConversation()

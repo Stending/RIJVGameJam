@@ -17,11 +17,18 @@ MSG;B;3.0;Bonjour,
 -> ahcool
 
 === paswelcome ===
-- MSG;B;2.5;Hey, y a l'air d'y avoir suretout des familles et des vieux dans cette immeuble quand j'ai demandé s'il y avait des jeunes on m'a dit qu'il y avait toi.
+- MSG;B;2.5;Hey, y a l'air d'y avoir surtout des familles et des vieux dans cette immeuble quand j'ai demandé s'il y avait des jeunes on m'a dit qu'il y avait toi.
 * [Pas si jeune] MSG;A;3.5;J'ai trente ans, je suis pas sur d'être aussi jeune que toi.
 -> stopbaching
-* [Ne pas répondre]
--> END
+* [Enfants] Il y a aussi des enfants, tu les oublies !
+-> welcome
+
+=== stopbaching ===
+-MSG;B;2.0;Lol, effectivement je cherche des paires pas un père xD
+* :D
+->ahcool
+* [Pas drôle] Ok, je pense que je pense que l'houmour n'est pas ton point fort :P
+->ahcool
 
 === ahmerde ===
 - MSG;B;2.0;Ah merde, tu penses qu'on va pas me répondre ?
@@ -35,21 +42,35 @@ MSG;B;3.0;Bonjour,
 * [Steven Universe] MSG;A;2.0;OMG, tu es fan de Steven Universe ?
 ->stevenuniverse
 
-=== stopbaching ===
-- Lol, effectivement je cherche des paires pas un père xD
-* :D
-->ahcool
-* [Pas drôle] Ok, je pense que je pense que l'houmour n'est pas ton point fort :P
-->ahcool
-
 === stevenuniverse ===
 - MSG;B;2.0;Oui, si j'étais plus jeune et plus opé sur la couture, je pense que mon cosplay de Garnett aurait déjà sa place dans mon dressing
 * [Déguisement] Je comprend ;)
-->cosplay
+->cosplay2
 * [Steven Univers] Je suis fan aussi :D
-->stevenuniverse
+->cosplay
 
 === cosplay ===
+- MSG;B;5.0;C'est quoi ton perso préféré ?
+* [Pearl] MSG;A;3.0;Pearl bien évidemment :D
+->cosplay3
+* [Steven] MSG;A;3.0;Steven ;)
+->cosplay3
+
+=== cosplay3 ===
+- MSG;B;5.0;Et du coup tu as jamais penser à t'en faire des cosplays ? :D
+* [Oui] MSG;A;3.0;Bien sur que si
+->cosplay4
+* [Pas pour les hommes] MSG;A;3.0;Bien sur que si
+->cosplay4
+
+=== cosplay4 ===
+- MSG;B;5.0;Donc tu kiff le cosplay aussi ?
+* [Pas exactement] MSG;A;3.0;C'est pas exactement ça, je sais pas si je peux t'en parler...
+->drag
+* [Eluder] MSG;A;3.0;Ah c'est compliqué
+->stevenuniverse3
+
+=== cosplay2 ===
 - MSG;B;5.0;Tu kiff le cosplay aussi ?
 * [Pas exactement] MSG;A;3.0;C'est pas exactement ça, je sais pas si je peux t'en parler...
 ->drag
@@ -60,6 +81,11 @@ MSG;B;3.0;Bonjour,
 - MSG;B;2.0;Sur, t'avais l'air de vouloir parler cosplay, non ?
 * [Pas exactement] MSG;A;3.0;C'est pas exactement ça, je sais pas si je peux t'en parler...
 ->drag
+
+=== stevenuniverse3 ====
+- MSG;B;2.0;Tu peux m'en parler, promis je ne te jugerais pas
+* [Ok] MSG;A;10.0;Bah en fait, je suis drag queen.
+->drag2
 
 === drag ===
 - MSG;B;7.0;Vas-y je te jugerais pas, no problemos.
@@ -75,7 +101,7 @@ MSG;B;3.0;Bonjour,
 
 === bonnefin2 ====
 - MSG;A;4.0;Alleeeeeez
-- MGS;B;3.0;Ok ça roule, j'ai un spectacle ce soir? tu pourras venir si tu veux ;)
+- MSG;B;3.0;Ok ça roule, j'ai un spectacle ce soir? tu pourras venir si tu veux ;)
 ->END
 
 === bonnefin ====

@@ -7,7 +7,7 @@ Merci pour hier, grâce à toi et ta maman, j'ai eu un entretiens pour aller tra
 
 === merci ===
 - MSG;B;3.0;Moi non, mais je connnais une vieille femme dans l'immeuble...
-* [Pas la sorcière] MSG;A;2.5;NOOON PAS LA SORCIÈRE ! 
+* [Pas la sorcière !] MSG;A;2.5;NOOON PAS LA SORCIÈRE ! 
 -> calmedown
 * [Pas certain] MSG;A;3.0;Jsais pas, je pense kel me déteste m1tenant
 -> blanche

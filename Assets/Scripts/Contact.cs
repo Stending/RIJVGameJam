@@ -6,6 +6,7 @@ using Ink.Runtime;
 [System.Serializable]
 public class Contact{
 
+    public Character LinkedCharacter;
     public string Name;
     public string PhoneNumber;
 

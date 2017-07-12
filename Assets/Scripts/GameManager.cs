@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour {
 
         CurrentPhone.LeaveToBottom();
         CurrentPhone.DisableIn(2.0f);
-
+        UpdatePhonesWithConv(CurrentPhone, CurrentChar);
         int charId = (int)CurrentCharacter + 1;
         
         if (charId < 4)
@@ -81,6 +81,17 @@ public class GameManager : MonoBehaviour {
         else
         {
             print("FINI");
+        }
+    }
+
+    public void UpdatePhonesWithConv(PhoneScript originPhone, Character chara)
+    {
+       for(int i = 0; i < 4; i++)
+        {
+            Character currentChara = (Character)i;
+            if (currentChara != chara) { 
+                Phones[i].ChangeConversationWith(chara, originPhone.GetConversationFrom(currentChara).InvertAuthors());
+            }
         }
     }
 

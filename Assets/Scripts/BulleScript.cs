@@ -25,14 +25,12 @@ public class BulleScript : MonoBehaviour {
         string currentLine = msg.Substring(lastBackspace, Mathf.Min(msg.Length, LINE_SIZE));
         while (currentLine.Length > LINE_SIZE - 1)
         {
-            print("On traite la ligne " + currentLine);
             if (currentLine.Contains("\n"))
             {
                 lastBackspace += currentLine.LastIndexOf('\n')+1;
             }
             else if (currentLine.Contains(" "))
             {
-                print("Elle contient un espace, du coup on coupe la ligne ici");
                 lastBackspace += currentLine.LastIndexOf(' ');
                 msg.Remove(lastBackspace);
                 msg = msg.Insert(lastBackspace, "\n");
@@ -44,7 +42,6 @@ public class BulleScript : MonoBehaviour {
                 msg = msg.Insert(lastBackspace, "\n");
                 lastBackspace +=2;
             }
-            print("On coupe de " + lastBackspace + " à " + Mathf.Min(msg.Length - lastBackspace, lastBackspace + LINE_SIZE));
             currentLine = msg.Substring(lastBackspace, Mathf.Min(msg.Length - lastBackspace, LINE_SIZE));
         }
         MessageText.text = msg;

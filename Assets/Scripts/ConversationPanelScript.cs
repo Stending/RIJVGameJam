@@ -19,6 +19,9 @@ public class ConversationPanelScript : MonoBehaviour {
 
     public UnityEngine.Object ChoicePanelPrefab;
 
+    public UnityEngine.Object ConversationEndPrefab;
+
+
     public ChoicePanel CurrentChoicePanel;
 
     public RectTransform MessagePanelTransform;
@@ -32,12 +35,6 @@ public class ConversationPanelScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         LayoutRebuilder.ForceRebuildLayoutImmediate(MessagePanelTransform);
-
-        if (Input.GetKeyDown("space"))
-        {
-            NewBulle(Random.Range(0, 10) < 5, "Ohlalalalalala jpp jpp jpp trop de pression mais tout va bien merci");
-        }
-      
 	}
 
     public RectTransform NewBulle(bool author, string msg)
@@ -47,6 +44,12 @@ public class ConversationPanelScript : MonoBehaviour {
         Bulles.Add(bs);
         return bs.GetComponent<RectTransform>();
 
+    }
+
+    public RectTransform NewMessage(bool author, string msg)
+    {
+        CurrentContact.Conv.Messages.Add(new ConversationMessage(msg, author));
+        return NewBulle(author, msg);
     }
 
     public BulleScript InstantiateBulle(bool author)
@@ -71,6 +74,10 @@ public class ConversationPanelScript : MonoBehaviour {
         foreach(BulleScript bs in Bulles)
         {
             Destroy(bs.gameObject);
+        }
+        foreach(Transform child in MessagePanelTransform)
+        {
+            Destroy(child.gameObject);
         }
         Bulles.Clear();
     }
@@ -100,7 +107,7 @@ public class ConversationPanelScript : MonoBehaviour {
             {
                 if (retrievingSms)
                 {
-                    NewBulle(currentAuthor, newSms);
+                    NewMessage(currentAuthor, newSms);
                     retrievingSms = false;
                     yield return new WaitForSeconds(duration);
                 }
@@ -119,7 +126,7 @@ public class ConversationPanelScript : MonoBehaviour {
                 else
                 {
                     newSms = text;
-                    NewBulle(true, newSms);
+                    NewMessage(true, newSms);
                     yield return new WaitForSeconds(2.0f);
                 }
             }
@@ -128,7 +135,7 @@ public class ConversationPanelScript : MonoBehaviour {
         //GENERATION DU DERNIER SMS
         if (retrievingSms)
         {
-            NewBulle(currentAuthor, newSms);
+            NewMessage(currentAuthor, newSms);
             retrievingSms = false;
             yield return new WaitForSeconds(duration);
         }
@@ -150,7 +157,7 @@ public class ConversationPanelScript : MonoBehaviour {
         {
             //STORY TERMINÉE
             StoryFinished();
-
+            InstantiateConversationEndPanel();
         }
     }
 
@@ -168,5 +175,10 @@ public class ConversationPanelScript : MonoBehaviour {
     {
         GameObject go = Instantiate(ChoicePanelPrefab, MessagePanelTransform) as GameObject;
         return go.GetComponent<ChoicePanel>();
+    }
+
+    public void InstantiateConversationEndPanel()
+    {
+        GameObject go = Instantiate(ConversationEndPrefab, MessagePanelTransform) as GameObject;
     }
 }
