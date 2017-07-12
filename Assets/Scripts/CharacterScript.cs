@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class CharacterScript : MonoBehaviour {
 
-    public Sprite OnPhone;
-    public Sprite NotOnPhone;
+    public MeshRenderer MeshRend;
+    public Material OnPhone;
+    public Material NotOnPhone;
 
     private SpriteRenderer SpriteRend;
 
@@ -16,10 +17,11 @@ public class CharacterScript : MonoBehaviour {
     public void SetOnPhone()
     {
         //SpriteRend.sprite = OnPhone;
+        MeshRend.material = OnPhone;
     }
 
     public void SetNotOnPhone()
     {
-        //SpriteRend.sprite = NotOnPhone;
+        MeshRend.material = NotOnPhone;
     }
 }
