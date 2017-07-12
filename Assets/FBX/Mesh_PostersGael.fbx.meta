@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 7e3908b007bdc37499bc33599228fade
-timeCreated: 1499552770
+guid: d9492dc74a8808d44a32288cfca47911
+timeCreated: 1499862016
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,8 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cadres
-    4300002: Painting
+    4300000: PostersGael
     9500000: //RootNode
   materials:
     importMaterials: 1

@@ -6,10 +6,24 @@ ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Dressing
+    100004: PostersGael
+    100006: PotFleurs
     400000: //RootNode
+    400002: Dressing
+    400004: PostersGael
+    400006: PotFleurs
     2300000: //RootNode
+    2300002: Dressing
+    2300004: PostersGael
+    2300006: PotFleurs
     3300000: //RootNode
+    3300002: Dressing
+    3300004: PostersGael
+    3300006: PotFleurs
     4300000: PotFleurs
+    4300002: Dressing
+    4300004: PostersGael
     9500000: //RootNode
   materials:
     importMaterials: 1
