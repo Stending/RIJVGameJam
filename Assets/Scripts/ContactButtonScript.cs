@@ -14,7 +14,6 @@ public class ContactButtonScript : MonoBehaviour {
     private PhoneScript CurrentPhone;
     // Use this for initialization
     void Start () {
-        SetActiveImageColor(CurrentPhone.MainColor);
 	}
 	
 	// Update is called once per frame
@@ -32,6 +31,7 @@ public class ContactButtonScript : MonoBehaviour {
         NameText.text = name;
         PhoneNumberText.text = phoneNumber;
         CurrentPhone = ps;
+        SetActiveImageColor(CurrentPhone.MainColor);
     }
 
     public void Highlight()

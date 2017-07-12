@@ -16,8 +16,9 @@ public class CharacterScript : MonoBehaviour {
     }
     public void SetOnPhone()
     {
+        print("On passe sur notre téléphone !!");
         //SpriteRend.sprite = OnPhone;
-        MeshRend.material = OnPhone;
+        MeshRend.sharedMaterial = OnPhone;
     }
 
     public void SetNotOnPhone()

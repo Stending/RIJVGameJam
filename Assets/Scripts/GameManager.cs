@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
 
     public RoomScript[] Rooms = new RoomScript[4];
     public PhoneScript[] Phones = new PhoneScript[4];
+    public CharacterScript[] Characters = new CharacterScript[4];
 
     public Character CurrentChar = Character.Blanche;
     public PhoneScript CurrentPhone;
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour {
         }
         CurrentPhone.PhoneFinished += FinishPhone;
 
+        Characters[(int)CurrentCharacter].SetOnPhone();
         AudioManager.Instance.SetPiste((int)CurrentChar, 1.0f);
     }
 	
@@ -66,6 +68,7 @@ public class GameManager : MonoBehaviour {
     {
         print("ON TERMINE LE TELEPHONE DE " + CurrentCharacter);
 
+        Characters[(int)CurrentCharacter].SetNotOnPhone();
         CurrentPhone.LeaveToBottom();
         CurrentPhone.DisableIn(2.0f);
         UpdatePhonesWithConv(CurrentPhone, CurrentChar);
