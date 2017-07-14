@@ -26,6 +26,7 @@ public class ConversationPanelScript : MonoBehaviour {
 
     public RectTransform MessagePanelTransform;
 
+    public PhoneScript CurrentPhone;
     public List<BulleScript> Bulles;
 	// Use this for initialization
 	void Start () {
@@ -48,6 +49,8 @@ public class ConversationPanelScript : MonoBehaviour {
 
     public RectTransform NewMessage(bool author, string msg)
     {
+        if (!author)
+            CurrentPhone.PlaySmsSound();
         CurrentContact.Conv.Messages.Add(new ConversationMessage(msg, author));
         return NewBulle(author, msg);
     }
@@ -141,7 +144,6 @@ public class ConversationPanelScript : MonoBehaviour {
         }
 
 
-        print("On génère les choix");
         //GENERATION DES CHOIX
         if (CurrentContact.SmsStory.currentChoices.Count > 0)
         {
@@ -179,6 +181,6 @@ public class ConversationPanelScript : MonoBehaviour {
 
     public void InstantiateConversationEndPanel()
     {
-        GameObject go = Instantiate(ConversationEndPrefab, MessagePanelTransform) as GameObject;
+        Instantiate(ConversationEndPrefab, MessagePanelTransform);
     }
 }

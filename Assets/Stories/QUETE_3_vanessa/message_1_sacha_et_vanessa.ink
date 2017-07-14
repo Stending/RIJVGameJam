@@ -16,12 +16,12 @@ Vanessa
 -> amnesty
 
 === pasrep ===
-- MSG;B;2.0;Mais je peu lui passer ton mess, tu a besoin de koi ?
+- MSG;B;2.0;Mais je peu lui donner ton msg, tu a besoin de koi ?
 * [Ok] MSG;A;4.0;Je cherche un stage en droit, de préférence dans une association
 ->amnesty
 
 === amnesty ===
-- MSG;B;2.5;Jcrois kel à une copine qui travail à Amnesty jsais pu koi, je lui demande ;)
+- MSG;B;2.5;Jcrois kel à une copine qui travail à amnety jsais pu koi, je lui demande ;)
 * [Merci] MERCI :D
 -> fin
 

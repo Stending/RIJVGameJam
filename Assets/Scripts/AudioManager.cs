@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance = null;
     public List<AudioSource> audioSources = new List<AudioSource>();
+    public AudioSource SfxSource;
     public int CurrentPist = -1;
     public float time = 0;
 
@@ -84,11 +85,35 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void LowerSound(float goalVolume, float time)
+    {
+        StopAllCoroutines();
+        StartCoroutine(LowerSoundTo(goalVolume, time));
+    }
+
+    public IEnumerator LowerSoundTo(float goal, float time)
+    {
+        float startVolume = audioSources[CurrentPist].volume;
+        float goalVolume = goal;
+        for (float f = 0; f < time; f += Time.deltaTime)
+        {
+            audioSources[CurrentPist].volume =  startVolume- ((startVolume - goalVolume) * f / time);
+            yield return null;
+        }
+        audioSources[CurrentPist].volume = goal;
+
+    }
+
     public void Mute()
     {
         for (int i = 0; i < audioSources.Count; i++)
         {
             audioSources[i].volume = 0;
         }
+    }
+
+    public void PlaySfx(AudioClip ac)
+    {
+        SfxSource.PlayOneShot(ac);
     }
 }

@@ -10,7 +10,7 @@
 
 === acool ===
 - MSG;B;3.0;De rien, tu es bien rentrée, je suis désolé de pas avoir pu te racompagner mais on a l'habitude d'aller boire un verre ensemble à la fin du spectacle
-* [Retour pas évident] MSG;A.5.0;Je suis tombée sur un groupe de relou sur le retour mais rien de trop grave (même si ça me soule ce genre de situation haha)
+* [Retour pas évident] MSG;A.5.0;Je suis tombée sur un groupe de relou qui penses qu'il y a des tigresses en Afrique, mais t'inquiète pas pour moi (même si ça me soule ce genre de situation haha)
 ->harcelement
 * [Pas de soucis] MSG;A;3.0;Je suis rentrée sans problème ne t'inquiète pas
 ->acool2
@@ -26,7 +26,7 @@
 - MSG;B;3.0;Je suis désolé, ça a du être chiant, j'aurais du te racompagner
 * [Pas sérieux] MSG;A.5.0;Avec tes pouvoirs de magical girl c'est sur que ça n'aurait rien eu a voir :)
 ->acool23
-* [Sérieux] MSG;A;3.0;Je ne sais pas, je ne pense pas qu'une drag queen ça plus à l'abris que moi pour ce genre de chose...
+* [Sérieux] MSG;A;3.0;Je ne sais pas, je ne pense pas qu'une drag queen soit plus à l'abris que moi pour ce genre de chose...
 ->harcelement2
 
 === harcelement2 ===
@@ -63,8 +63,9 @@
 ->autrefinal
 
 === jepenseoui ===
-- MSG;B;2.0;Ah merde, je comprend, j'ai un peu le même problème avec ma deuxième vie de Drag Queen si les gens savaient au boulot, je tiendrais pas très longtemps là bas...
+- MSG;B;2.0;Ah merde, je comprend, j'ai un peu le même problème avec ma deuxième vie de Drag Queen si les gens savaient au boulot, je tiendrais pas très longtemps là-bas...
 * [Demander de l'aide] MSG;A;5.0;Tu penses que tu peux m'aider ? Tu connais peut être des gens qui bossent dans le droit.
+->final
 * [Ne pas répondre]MSG;A;5.0;
 ->autrefinal
 

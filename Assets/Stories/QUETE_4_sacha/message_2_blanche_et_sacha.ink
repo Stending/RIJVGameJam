@@ -67,10 +67,17 @@
 
 === continuer4 ===
 - MSG;B;5.0;Dans l'espace mon garçon, je sais pas si on peut la contacter de là-bas, c'est si vaste et toutes ces lumières doivent dérouter les fantômes, tu ne penses pas ?
+* [Découragé] Vous avez réson c bcp trop grand...
+->continuer4bis
 * [Demander] MSG;A;5.0;Esce ke vous penser que je pourrez au moins essayé ?
 ->jepenseoui
 * [SORCIÈRE !] MSG;A;5.0.0;JE LE SAVEZ VOUS ÊTES VRAIMENT UNE SORCIÈRE !
 -> sorciere
+
+=== continuer4bis ===
+- MSG;B;5.0;Il y a aussi le royaume des rêves qui peut-être une bonne alternative, pour ceux qui ont le mal de l'espace
+* [Demander] MSG;A;5.0;Vous pourrez me montrer ?
+->jepenseoui
 
 === jepenseoui ===
 - MSG;B;3.0;Oui, bien sur, juste demande à tes parents si tu peux passer chez moi et on essayera de lui parler. Tes excuses sont sincères je pense qu'on peux être de nouveau de bon voisin

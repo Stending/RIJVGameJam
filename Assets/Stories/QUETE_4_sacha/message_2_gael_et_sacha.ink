@@ -5,7 +5,7 @@ VAR mechant = 0
 -> END
 
 === welcome ===
-- MSG;B;2.0;Ouai bien sur.
+- MSG;B;2.0;Ouai bien sûr.
 * [Rumeur] MSG;A;6.0;Mes parents on dit que tu sortais avec des garçons, c vrai ? Pk ? C dégueu
 -> gay
 * [Parler de Blanche]MSG;A;2.5;Je voulais parler ac toi de ce ki c passé avec Mme Spitz.
@@ -40,7 +40,7 @@ VAR mechant = 0
 ->findeconversation3
 
 === cpaspareil ===
-- MSG;B;3.0;Ecoute j'ai vraiment pas envie d'avoir cette conversation avec toi, si tu as des questions demande à tes parents.
+- MSG;B;3.0;Écoutes, j'ai vraiment pas envie d'avoir cette conversation avec toi, si tu as des questions demande à tes parents.
 ~ mechant = 1
 
 * [Parler de Blanche] MSG;A;3.0;Et je voulais parler ac toi de ce ki c passé avec Mme Spitz.
@@ -52,7 +52,7 @@ VAR mechant = 0
 -> END
 
 === findeconversationbad ===
-- MSG;B;3.0;Je pense que tu devrais en parler avec elle un jour histoire de remettre les choses à plat, je pense aussi qu'en générale tu devrais réfléchir à la manière dont tu juges un peu vite les gens...
+- MSG;B;3.0;Je pense que tu devrais en parler avec elle un jour histoire de remettre les choses à plat. En générale tu devrais réfléchir à la manière dont tu juges les gens, parfois on ne comprend pas les choses et on se comporte mal avec les autres à cause de ça, essaye de ne pas recommencer ce que tu as fait avec Blanche avec d'autres personnes...
 * [Merci] à plus tard
 -> END
 * [Ne pas répondre] MSG;A;4.0;

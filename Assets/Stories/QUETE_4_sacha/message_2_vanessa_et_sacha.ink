@@ -1,5 +1,5 @@
 - MSG;B;3.0;Salut Sacha,
-Merci pour hier, grâce à toi et ta maman, j'ai eu un entretiens pour aller travailler à Amnesty et je tenais à te remercier. J'ai apris pour ta grand-mère tous à l'heure, toute mes condoléances si tu as besoin de quelque choses, n'importe quoi, dis-le moi :)
+Merci pour hier, grâce à toi et ta maman, j'ai eu un entretien pour aller travailler à Amnesty et je tenais à te remercier. J'ai apris pour ta grand-mère tous à l'heure, toutes mes condoléances si tu as besoin de quelques choses, n'importe quoi, dis-le moi :)
 
 
 * [Merci] MSG;A;4.5;Jpense pa ke tu puisses fer un truc mais merci pour ton message
@@ -31,7 +31,7 @@ MSG;B;2.0;Courage, tu peux le faire
 ->END
 
 === findeconversation2 ===
-- MSG;B;2.5;Ok, en tous cas, si tu penses avoir fait une bêtise, c'est important d'aller s'excusez, si tu commence à ton âge tu seras peut être un adulte intéressant une fois grand :P
+- MSG;B;2.5;Ok, en tous cas, si tu penses avoir fait une bêtise, c'est important d'aller s'excuser, si tu commences à ton âge, tu seras peut être un adulte intéressant une fois grand :P
 * [Merci] à plus tard
 -> END
 * [Ne pas répondre]MSG;A;4.0;

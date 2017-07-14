@@ -23,7 +23,10 @@
 ->gros_relou
 
 === gros_relou ===
-- MSG;B;3.0;Ecoutez je n'ai pas envie, vous me fatiguez :(
+- MSG;B;3.0;Je n'ai pas envie, Gaël, arrêtez tous de suite s'il vous plaît, vous me fatiguez
+* [S'excusez] MSG;A;2.5;Désolé Blanche, bonne soirée à vous
+->END
+* [Ne pas répondre]
 ->END
 
 === smsfinal ===

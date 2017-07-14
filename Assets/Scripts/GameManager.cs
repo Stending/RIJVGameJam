@@ -14,14 +14,16 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager Instance = null;
 
-    public Animator CameraAnim;
+    public CameraScript Camera;
 
     public RoomScript[] Rooms = new RoomScript[4];
     public PhoneScript[] Phones = new PhoneScript[4];
     public CharacterScript[] Characters = new CharacterScript[4];
 
-    public Character CurrentChar = Character.Blanche;
     public PhoneScript CurrentPhone;
+
+    public Transform LargeViewSpot;
+    public List<Transform> CharacterViewSpots;
 
     public Character CurrentCharacter;
     public Character LinkedCharacter;
@@ -37,7 +39,19 @@ public class GameManager : MonoBehaviour {
 
     private void Start()
     {
-        StartPhone(CurrentCharacter);
+        //StartPhone(CurrentCharacter);
+    }
+
+    public void StartGame()
+    {
+        LargeView();
+        CurrentCharacter = Character.Blanche;
+        Invoke("NextDay", 5.0f);
+    }
+
+    public void LargeView()
+    {
+        Camera.GoToSpot(LargeViewSpot, 4.0f);
     }
 
     public void StartPhone(Character chara) 
@@ -47,16 +61,16 @@ public class GameManager : MonoBehaviour {
         SelectCharacter(chara);
         if(chara == Character.Blanche ||chara == Character.Gael)
         {
-            CurrentPhone.ComeFromLeft();
+            CurrentPhone.Appear();
         }
         else
         {
-            CurrentPhone.ComeFromRight();
+            CurrentPhone.Appear();
+            //CurrentPhone.ComeFromLeft();
         }
         CurrentPhone.PhoneFinished += FinishPhone;
 
         Characters[(int)CurrentCharacter].SetOnPhone();
-        AudioManager.Instance.SetPiste((int)CurrentChar, 1.0f);
     }
 	
 	// Update is called once per frame
@@ -66,19 +80,17 @@ public class GameManager : MonoBehaviour {
 
     public void FinishPhone()
     {
-        print("ON TERMINE LE TELEPHONE DE " + CurrentCharacter);
-
         Characters[(int)CurrentCharacter].SetNotOnPhone();
         CurrentPhone.LeaveToBottom();
         CurrentPhone.DisableIn(2.0f);
-        UpdatePhonesWithConv(CurrentPhone, CurrentChar);
+        UpdatePhonesWithConv(CurrentPhone, CurrentCharacter);
         int charId = (int)CurrentCharacter + 1;
         
         if (charId < 4)
         {
             CurrentCharacter = (Character)charId;
-            if (charId == 2)
-                CameraMoveToRight();
+            /*if (charId == 2)
+                CameraMoveToRight();*/
             Invoke("NextDay", 2.0f);
         }
         else
@@ -100,16 +112,19 @@ public class GameManager : MonoBehaviour {
 
     public void NextDay()
     {
+        ZoomTo(CurrentCharacter);
+        AudioManager.Instance.SetPiste((int)CurrentCharacter + 1, 2.0f);
+        Invoke("StartCurrentPhone", 2.0f);
+    }
+
+    public void StartCurrentPhone()
+    {
         StartPhone(CurrentCharacter);
     }
 
-    public void CameraMoveToLeft()
+    public void ZoomTo(Character chara)
     {
-
-    }
-    public void CameraMoveToRight()
-    {
-        CameraAnim.SetBool("Left", false);
+        Camera.GoToSpot(CharacterViewSpots[(int)chara], 2.0f);
     }
 
 
@@ -131,10 +146,10 @@ public class GameManager : MonoBehaviour {
 
     }
 
-    public void UnselectLinkedCharacter()
+/*    public void UnselectLinkedCharacter()
     {
         SelectCharacter(CurrentCharacter);
-    }
+    }*/
 
     /*public void MoveOtherToCharasExtremity(Character chara, Character chara2)
     {
