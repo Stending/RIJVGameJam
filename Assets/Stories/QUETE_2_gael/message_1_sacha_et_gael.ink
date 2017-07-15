@@ -9,7 +9,7 @@ VAR mechant = 0
 ~ mechant = 1
 
 * [S'excuser] MSG;A;2.0;Vous avez raison, navré de m'être emporté
-MSG;B;2.5;Très bien, je vous le repasse, mais essayé de ne pas oublier que vous parlez à un enfant.
+MSG;B;2.5;Très bien, je vous le repasse, mais essayez de ne pas oublier que vous parlez à un enfant.
 MSG;A;3.0;Du coup Sacha, j'ai parlé avec Mme Spitz et je pense que ton comportement envers elle était déplacé
 ->be_cool
 
