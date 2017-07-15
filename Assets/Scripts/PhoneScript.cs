@@ -53,21 +53,6 @@ public class PhoneScript : MonoBehaviour {
         }
 	}
 	
-	// Update is called once per frame
-	void Update () {
-
-        if (Input.GetKeyDown("t"))
-        {
-            foreach(Contact c in Contacts)
-            {
-                c.Readable = true;
-                c.Finished = true;
-            }
-            UpdateButtons();
-        }
-        //this.transform.LookAt(CameraTransform);
-		
-	}
 
     public void LoadData()
     {

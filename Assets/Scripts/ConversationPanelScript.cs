@@ -36,14 +36,14 @@ public class ConversationPanelScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         LayoutRebuilder.ForceRebuildLayoutImmediate(MessagePanelTransform);
-        if (Input.GetKeyDown("r"))
+        /*if (Input.GetKeyDown("r"))
         {
             CurrentContact.Init();
             CurrentContact.Conv = new Conversation();
             ResetConv();
             StartCoroutine(ContinueStory());
 
-        }
+        }*/
 	}
 
     public RectTransform NewBulle(bool author, string msg)

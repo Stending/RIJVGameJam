@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum Character
 {
@@ -20,6 +21,8 @@ public class GameManager : MonoBehaviour {
     public PhoneScript[] Phones = new PhoneScript[4];
     public CharacterScript[] Characters = new CharacterScript[4];
     public DayTexts DayTextAnnounces;
+
+    public GameObject EndBackground;
 
     public PhoneScript CurrentPhone;
 
@@ -43,6 +46,7 @@ public class GameManager : MonoBehaviour {
 
     private void Start()
     {
+        EndBackground.SetActive(false);
         //StartPhone(CurrentCharacter);
     }
     
@@ -58,6 +62,11 @@ public class GameManager : MonoBehaviour {
     public void LargeView()
     {
         Camera.GoToSpot(LargeViewSpot, 4.0f);
+    }
+
+    public void EndView()
+    {
+        Camera.GoToSpot(EndViewSpot, 6.0f);
     }
 
     public void StartPhone(Character chara) 
@@ -97,8 +106,8 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown("p")){
-            FinishPhone();
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 	}
 
@@ -122,11 +131,15 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
-            Camera.GoToSpot(EndViewSpot);
+            //Camera.GoToSpot(EndViewSpot);
+            Invoke("LargeView", 2.0f);
+            Invoke("EndView", 8.0f);
+            EndBackground.SetActive(true);
             print("FINI");
         }
     }
 
+    
     public void UpdatePhonesWithConv(PhoneScript originPhone, Character chara)
     {
        for(int i = 0; i < 4; i++)

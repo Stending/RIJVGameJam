@@ -19,6 +19,7 @@ public class MenuScript : MonoBehaviour {
     public int CenterSpotId = 3;
 	// Use this for initialization
 	void Start () {
+        //print("test : " + SystemInfo.batteryLevel);
         AudioManager.Instance.SetPiste(0, 1.0f);
         FullscreenToggle.isOn = Screen.fullScreen;
 	}
@@ -29,6 +30,10 @@ public class MenuScript : MonoBehaviour {
         AudioManager.Instance.LowerSound(0.3f, 1.0f);
         Logo.Disappear();
         Background.Disappear();
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 	
 	// Update is called once per frame

@@ -1,18 +1,18 @@
 VAR mechant = 0
-* [Salut] MSG;A;3.0;Slt, est ce ke je pe te parler d'un truc ?
+* [Salut] MSG;A;3.0;slt, est ce ke je pe te parler d'un truc ?
 -> welcome
 * [Ne pas envoyer de message]
 -> END
 
 === welcome ===
-- MSG;B;2.0;Ouai bien sûr.
+- MSG;B;2.0;Ouais bien sûr.
 * [Rumeur] MSG;A;6.0;Mes parents on dit que tu sortais avec des garçons, c vrai ? Pk ? C dégueu
 -> gay
 * [Parler de Blanche]MSG;A;2.5;Je voulais parler ac toi de ce ki c passé avec Mme Spitz.
 -> blanche
 
 === gay ===
-- MSG;B;4.0;C'est pas plus dégueue que sortir avec des filles, tu penses pas ?
+- MSG;B;4.0;C'est pas plus dégueu que sortir avec des filles, tu penses pas ?
 * [Pas pareil] MSG;A;3.5;C pas pareil
 ->cpaspareil
 * [Pas faux] MSG;A;2.5;Je croit ke je voi ce que tu veux dire...
@@ -26,21 +26,21 @@ VAR mechant = 0
 -> fin1
 
 === findeconversation ===
-- MSG;B;2.0;C'est bien prend le temps d'y réfléchir, bon week end ;)
+- MSG;B;2.0;C'est bien prends le temps d'y réfléchir, bon weekend ;)
 * [Merci] MSG;A;0.0;Merci, à plus tard
 ->END
 * [Parler de Blanche] MSG;A;3.0;Et je voulais parler ac toi de ce ki c passé avec Mme Spitz.
 -> blanche
 
 === findeconversation2 ===
-- MSG;B;3.0;Je pense que tu devrais en parler avec elle un jour histoire de remettre les choses à plat, elle est beaucoup plus gentille que tu ne le pense.
+- MSG;B;3.0;Je pense que tu devrais en parler avec elle un jour histoire de remettre les choses à plat, elle est beaucoup plus gentille que tu ne le penses.
 * [Merci] à plus tard
 -> END
 * [Ne pas répondre] MSG;A;4.0;
 ->findeconversation3
 
 === cpaspareil ===
-- MSG;B;3.0;Écoutes, j'ai vraiment pas envie d'avoir cette conversation avec toi, si tu as des questions demande à tes parents.
+- MSG;B;3.0;Écoute, j'ai vraiment pas envie d'avoir cette conversation avec toi, si tu as des questions demande à tes parents.
 ~ mechant = 1
 
 * [Parler de Blanche] MSG;A;3.0;Et je voulais parler ac toi de ce ki c passé avec Mme Spitz.

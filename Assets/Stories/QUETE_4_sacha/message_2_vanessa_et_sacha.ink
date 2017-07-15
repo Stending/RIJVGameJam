@@ -1,6 +1,5 @@
 - MSG;B;3.0;Salut Sacha,
-Merci pour hier, grâce à toi et ta maman, j'ai eu un entretien pour aller travailler à Amnesty et je tenais à te remercier. J'ai apris pour ta grand-mère tout à l'heure, toutes mes condoléances si tu as besoin de quelque chose, n'importe quoi, dis-le moi :)
-
+Merci pour hier, grâce à toi et ta maman, j'ai eu un entretien pour aller travailler à Amnesty et je tenais à te remercier. J'ai appris pour ta grand-mère tout à l'heure, toutes mes condoléances si tu as besoin de quelque chose, n'importe quoi, dis-le moi :)
 
 * [Merci]MSG;A;4.5;Jpense pa ke tu puisses fer un truc mais cimer pour ton message
 -> merci
@@ -31,13 +30,13 @@ MSG;B;2.0;Courage, tu peux le faire
 ->END
 
 === findeconversation2 ===
-- MSG;B;2.5;Ok, en tout cas, si tu penses avoir fait une bêtise, c'est important d'aller s'excuser, si tu commences à ton âge, tu seras peut être un adulte intéressant une fois grand :P
+- MSG;B;2.5;Ok, en tout cas, si tu penses avoir fait une bêtise, c'est important d'aller s'excuser, si tu commences à ton âge, tu seras peut-être un adulte intéressant une fois grand :P
 * [Merci] à plus tard
 -> END
 * [Ne pas répondre]
 ->findeconversation3
 
 === findeconversation3 ===
-- MSG;B;2.0;Vraiment ne t'en fais pas, tu peux réparer ton erreur, j'en suis certain.
+- MSG;B;2.0;Vraiment ne t'en fais pas, tu peux réparer ton erreur, j'en suis certaine.
 * [Merci] Cimer a+
 -> END

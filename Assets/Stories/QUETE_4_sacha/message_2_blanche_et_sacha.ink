@@ -14,8 +14,8 @@ VAR mami = 0
 ->reponse
 
 === reponse ===
-- MSG;A;6.0;Je suis vrément désolé...
-- MSG;B;4.0;Le problème c'est qu'on ne peux pas revenir en arrière, mais il est possible de se racheter
+- MSG;A;5.0;Je suis vrément désolé...
+- MSG;B;3.0;Le problème c'est qu'on ne peut pas revenir en arrière, mais il est possible de se racheter
 * [Comment ?]MSG;A;3.5;Comment ?
 -> comment
 
@@ -52,14 +52,14 @@ VAR mami = 0
 -> continuer3
 
 === comment3 ===
-- MSG;B;3.0;Oui, je te l'ai dit je devine et entend beaucoup de chose
+- MSG;B;3.0;Oui, je te l'ai dit je devine et entends beaucoup de choses
 * [SORCIÈRE !] MSG;A;3.0;JE LE SAVEZ VOUS ÊTES VRAIMENT UNE SORCIÈRE !
 -> sorciere
 * [Espace] MSG;A;3.0;Vous savait ou elle es parti ?
 -> continuer4
 
 === sorciere ===
-- MSG;B;5.0;Ta mami m'a dis qu'elle était plutôt déçu de ce genre de comportement.
+- MSG;B;5.0;Ta mamie m'a dit qu'elle était plutôt déçue de ce genre de comportement.
 ~ mami = 1
 * [S'excuser]jvé arreter promi mé dite moi pour mami, elle é ou ?
 -> continuer4
@@ -85,12 +85,12 @@ VAR mami = 0
 -> sorciere
 
 === continuer4bis ===
-- MSG;B;5.0;Il y a aussi le royaume des rêves qui peut-être une bonne alternative, pour ceux qui ont le mal de l'espace
+- MSG;B;5.0;Il y a aussi le royaume des rêves qui peut être une bonne alternative, pour ceux qui ont le mal de l'espace
 * [Demander] MSG;A;5.0;Vous pourrez me montrer ?
 ->jepenseoui
 
 === jepenseoui ===
-- MSG;B;3.0;Oui, bien sur, juste demande à tes parents si tu peux passer chez moi et on essayera de lui parler. Tes excuses sont sincères je pense qu'on peut être de nouveau de bon voisin
+- MSG;B;3.0;Oui, bien sûr, juste demande à tes parents si tu peux passer chez moi et on essayera de lui parler. Tes excuses sont sincères je pense qu'on peut être de nouveau de bons voisins
 * [Remercier] Merci grand-mère
 -> END
 

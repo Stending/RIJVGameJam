@@ -6,7 +6,7 @@ J'ai eu votre numéro par votre voisin Gaël. Je suis étudiante en L3 de droit 
 Bien à vous,
 Vanessa
 
-- MSG;B;4.0;Slt, je pense qu'il s'est trompé parceke je suis son fils Sacha.
+- MSG;B;4.0;slt je pense qu'il s'est trompé parceke je suis son fils sacha.
 
 * [Excuse]MSG;A;2.0;Ah pardon
 -> apardon
