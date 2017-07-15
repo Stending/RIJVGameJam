@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour {
 
     public PhoneScript CurrentPhone;
 
+    public Animator TutoScreenAnim;
     public Transform LargeViewSpot;
     public List<Transform> CharacterViewSpots;
 
@@ -62,9 +63,15 @@ public class GameManager : MonoBehaviour {
         CurrentPhone = Phones[(int)chara];
         CurrentPhone.gameObject.SetActive(true);
         SelectCharacter(chara);
+        if(chara == Character.Blanche)
+        {
+            Invoke("TutoAppear", 2.0f);
+            Invoke("TutoDisappear", 10.0f);
+        }
         if(chara == Character.Blanche ||chara == Character.Gael)
         {
             CurrentPhone.Appear();
+            
         }
         else
         {
@@ -74,6 +81,16 @@ public class GameManager : MonoBehaviour {
         CurrentPhone.PhoneFinished += FinishPhone;
 
         Characters[(int)CurrentCharacter].SetOnPhone();
+    }
+
+    public void TutoAppear()
+    {
+        TutoScreenAnim.SetBool("Active", true);
+    }
+
+    public void TutoDisappear()
+    {
+        TutoScreenAnim.SetBool("Active", false);
     }
 	
 	// Update is called once per frame
