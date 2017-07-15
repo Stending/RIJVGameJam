@@ -8,7 +8,7 @@
 
 === continuer ===
 - MSG;A;4.0;Je pensai pas ke sa vous blesseré.
-* [Continuer] MSG;A.4.0; si je pouvai revenir en arrière je le ferai pa
+* [Continuer] MSG;A;4.0; si je pouvai revenir en arrière je le ferai pa
 ->reponse
 
 === reponse ===

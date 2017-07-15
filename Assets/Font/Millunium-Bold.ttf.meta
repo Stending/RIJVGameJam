@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 89090a84e2b8ae34aa21b345a560affc
+timeCreated: 1500075765
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Millunium
+  fontNames:
+  - Millunium
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

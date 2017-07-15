@@ -100,8 +100,8 @@ MSG;B;3.0;Bonjour,
 ->bonnefin2
 
 === bonnefin2 ====
-- MSG;A;4.0;Alleeeeeez
-- MSG;B;3.0;Ok ça roule, j'ai un spectacle ce soir? Tu pourras venir si tu veux ;)
+- MSG;B;4.0;Alleeeeeez
+- MSG;A;3.0;Ok ça roule, j'ai un spectacle ce soir? Tu pourras venir si tu veux ;)
 ->END
 
 === bonnefin ====

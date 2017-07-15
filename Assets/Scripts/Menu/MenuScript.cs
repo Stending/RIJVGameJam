@@ -9,6 +9,7 @@ public class MenuScript : MonoBehaviour {
     public FaderScript Logo;
     public FaderScript Background;
 
+    public Toggle FullscreenToggle;
 
     public Button LeftArrow;
     public Button RightArrow;
@@ -19,6 +20,7 @@ public class MenuScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         AudioManager.Instance.SetPiste(0, 1.0f);
+        FullscreenToggle.isOn = Screen.fullScreen;
 	}
 
     public void StartGame()
@@ -55,6 +57,14 @@ public class MenuScript : MonoBehaviour {
         }
     }
 
+    public void MuteSound(bool sound)
+    {
+        AudioManager.Instance.gameObject.SetActive(sound);
+    }
+    public void EnableFullScreen(bool enabled)
+    {
+        Screen.fullScreen = enabled;
+    }
     public void OpenItchIoLink()
     {
         Application.OpenURL("https://stending.itch.io/4cells");

@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour {
     public RoomScript[] Rooms = new RoomScript[4];
     public PhoneScript[] Phones = new PhoneScript[4];
     public CharacterScript[] Characters = new CharacterScript[4];
+    public DayTexts DayTextAnnounces;
 
     public PhoneScript CurrentPhone;
 
@@ -41,11 +42,13 @@ public class GameManager : MonoBehaviour {
     {
         //StartPhone(CurrentCharacter);
     }
+    
 
     public void StartGame()
     {
         LargeView();
         CurrentCharacter = Character.Blanche;
+        DayTextAnnounces.SwitchToText(0);
         Invoke("NextDay", 5.0f);
     }
 
@@ -75,7 +78,9 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        if (Input.GetKeyDown("p")){
+            FinishPhone();
+        }
 	}
 
     public void FinishPhone()
@@ -89,9 +94,11 @@ public class GameManager : MonoBehaviour {
         if (charId < 4)
         {
             CurrentCharacter = (Character)charId;
+            DayTextAnnounces.SwitchToText(charId);
             /*if (charId == 2)
                 CameraMoveToRight();*/
-            Invoke("NextDay", 2.0f);
+            LargeView();
+            Invoke("NextDay", 5.0f);
         }
         else
         {

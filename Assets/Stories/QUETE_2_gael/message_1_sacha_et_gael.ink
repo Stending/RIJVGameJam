@@ -23,9 +23,9 @@ MSG;A;3.0;Bonjour, Sacha, j'ai parlé avec Mme Spizt et je pense que ton comport
 
 === mauvaise_fin ===
 - MSG;B;4.0;Vous dites sa parceque les adultes disent des choses bizard sur vous aussi ?
-[Répondre]Ce ne sont pas tes affaires
+* [Répondre] Ce ne sont pas tes affaires
 ->END
-[Ne pas répondre]
+* [Ne pas répondre]
 ->END
 
 === bonne_fin ===
