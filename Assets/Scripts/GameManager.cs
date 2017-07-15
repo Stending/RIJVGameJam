@@ -98,6 +98,7 @@ public class GameManager : MonoBehaviour {
             /*if (charId == 2)
                 CameraMoveToRight();*/
             LargeView();
+            AudioManager.Instance.LowerSound(0.7f, 1.0f);
             Invoke("NextDay", 5.0f);
         }
         else
