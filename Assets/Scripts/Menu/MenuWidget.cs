@@ -20,7 +20,7 @@ public class MenuWidget : MonoBehaviour {
     public void UpdateTime() {
         DateTime dt = System.DateTime.Now;
         HourText.text = dt.Hour.ToString("00");
-        MinuteText.text = dt.Minute.ToString();
+        MinuteText.text = dt.Minute.ToString("00");
         Invoke("UpdateTime", 40.0f);
     } 
     public string EnglishDayToFrench(string day)
@@ -49,6 +49,6 @@ public class MenuWidget : MonoBehaviour {
     public string FrenchMonth(int id)
     {
         String[] mois = new String[] { "janv.", "fevr.", "mars", "avr.", "mai", "juin", "juil.", "aout", "sept.", "oct.", "nov.", "dec." };
-        return mois[id];
+        return mois[id-1];
     }
 }

@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour {
     public void FinishPhone()
     {
         Characters[(int)CurrentCharacter].SetNotOnPhone();
-        CurrentPhone.LeaveToBottom();
+        CurrentPhone.Disappear();
         CurrentPhone.DisableIn(2.0f);
         UpdatePhonesWithConv(CurrentPhone, CurrentCharacter);
         int charId = (int)CurrentCharacter + 1;
@@ -114,9 +114,9 @@ public class GameManager : MonoBehaviour {
             DayTextAnnounces.SwitchToText(charId);
             /*if (charId == 2)
                 CameraMoveToRight();*/
-            LargeView();
+            Invoke("LargeView", 1.0f);
             AudioManager.Instance.LowerSound(0.7f, 1.0f);
-            Invoke("NextDay", 5.0f);
+            Invoke("NextDay", 6.0f);
         }
         else
         {

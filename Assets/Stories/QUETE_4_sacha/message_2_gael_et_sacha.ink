@@ -48,14 +48,16 @@ VAR mechant = 0
 
 === findeconversation3 ===
 - MSG;B;3.0;Vraiment ne t'en fait pas, tu peux réparer ton erreur, j'en suis certain.
-* [Merci] à plus tard
+* [Merci] Merci, a+
+-MSG;B;3.0;De rien, j'espère que tu feras les bons choix ;)
 -> END
 
 === findeconversationbad ===
 - MSG;B;3.0;Je pense que tu devrais en parler avec elle un jour histoire de remettre les choses à plat. En générale tu devrais réfléchir à la manière dont tu juges les gens, parfois on ne comprend pas les choses et on se comporte mal avec les autres à cause de ça, essaye de ne pas recommencer ce que tu as fait avec Blanche avec d'autres personnes...
-* [Merci] à plus tard
+* [Merci] merci a+
+-MSG;B;3.0;De rien, j'espère que tu comprends ;)
 -> END
-* [Ne pas répondre] MSG;A;4.0;
+* [Ne pas répondre]
 ->END
 
 === fin1 ===

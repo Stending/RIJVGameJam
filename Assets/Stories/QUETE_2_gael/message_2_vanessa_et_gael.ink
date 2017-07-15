@@ -10,7 +10,7 @@ MSG;B;3.0;Bonjour,
 -> paswelcome
 
 === welcome ===
-- MSG;B;2.0;Hey, tu es le premier à répondre à mon message ! En réalité je ne suis pas sûre d'avoir beaucoup de succès mais je voulais innover. Je ne connais personne dans cette ville, pas même ma nouvelle coloc, que je viens tout juste de rencontrer.
+- MSG;B;2.0;Hey, tu es le premier à répondre à mon message ! En réalité je ne suis pas sûre d'avoir beaucoup de succès mais je voulais innover. Je ne connais personne dans cette ville, pas même ma nouvelle coloc, je viens tout juste de rencontrer.
 * [J'espère que tu vas t'adapter]MSG;A;2.0;J'espère que ça va bien se passer et que tout le monde va te répondre :)
 -> ahmerde
 * [C'est déstabilisant]MSG;A;3.0;C'est plutôt déstabilisant comme présentations, mais au moins ça change de voir les gens passer sans même connaître leur prénom

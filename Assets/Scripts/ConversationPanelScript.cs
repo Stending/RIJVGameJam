@@ -36,6 +36,14 @@ public class ConversationPanelScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         LayoutRebuilder.ForceRebuildLayoutImmediate(MessagePanelTransform);
+        if (Input.GetKeyDown("r"))
+        {
+            CurrentContact.Init();
+            CurrentContact.Conv = new Conversation();
+            ResetConv();
+            StartCoroutine(ContinueStory());
+
+        }
 	}
 
     public RectTransform NewBulle(bool author, string msg)
@@ -74,6 +82,7 @@ public class ConversationPanelScript : MonoBehaviour {
 
     public void ResetConv()
     {
+        StopAllCoroutines();
         foreach(BulleScript bs in Bulles)
         {
             Destroy(bs.gameObject);
@@ -118,7 +127,7 @@ public class ConversationPanelScript : MonoBehaviour {
                 currentAuthor = (strs[1] == "A");
                 duration = float.Parse(strs[2]);
                 retrievingSms = true;
-                newSms = strs[3];
+                newSms = text.Substring(7+strs[2].Length, text.Length- (7 + strs[2].Length)) ;
             }
             else
             {
@@ -158,7 +167,11 @@ public class ConversationPanelScript : MonoBehaviour {
         else
         {
             //STORY TERMINÉE
-            StoryFinished();
+            if (!CurrentContact.Finished)
+            {
+                CurrentContact.Finished = true;
+                StoryFinished();
+            }
             InstantiateConversationEndPanel();
         }
     }

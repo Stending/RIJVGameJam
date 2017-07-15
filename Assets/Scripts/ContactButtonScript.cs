@@ -13,7 +13,7 @@ public class ContactButtonScript : MonoBehaviour {
 
     private PhoneScript CurrentPhone;
     // Use this for initialization
-    void Start () {
+    void Start () { 
 	}
 	
 	// Update is called once per frame
@@ -33,6 +33,16 @@ public class ContactButtonScript : MonoBehaviour {
         CurrentPhone = ps;
         SetActiveImageColor(CurrentPhone.MainColor);
     }
+    
+    public void Hide()
+    {
+        this.gameObject.SetActive(false);
+    }
+
+    public void Unhide()
+    {
+        this.gameObject.SetActive(true);
+    }
 
     public void Highlight()
     {
@@ -41,6 +51,7 @@ public class ContactButtonScript : MonoBehaviour {
     public void Unhighlight()
     {
         ActiveIconImage.gameObject.SetActive(false);
+        print("On met unhilight le bouton de " + NameText.text);
     }
 
     public void SetActiveImageColor(Color col)
