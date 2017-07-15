@@ -11,7 +11,7 @@ Vanessa
 -> pasrep
 
 === apardon ===
-- MSG;B;3.0;Pas 2 soucis, je lui dis quoi du coup ?
+- MSG;B;3.0;Pas 2 soucis, je lui dis koi du coup ?
 * [Expliquer] MSG;A;4.0;Je cherche un stage en droit, de préférence dans une association
 -> amnesty
 
