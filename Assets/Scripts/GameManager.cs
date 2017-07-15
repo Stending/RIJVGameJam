@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour {
     public Animator TutoScreenAnim;
     public Transform LargeViewSpot;
     public List<Transform> CharacterViewSpots;
+    public Transform EndViewSpot;
+
 
     public Character CurrentCharacter;
     public Character LinkedCharacter;
@@ -120,6 +122,7 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
+            Camera.GoToSpot(EndViewSpot);
             print("FINI");
         }
     }

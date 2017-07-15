@@ -51,7 +51,6 @@ public class ContactButtonScript : MonoBehaviour {
     public void Unhighlight()
     {
         ActiveIconImage.gameObject.SetActive(false);
-        print("On met unhilight le bouton de " + NameText.text);
     }
 
     public void SetActiveImageColor(Color col)
