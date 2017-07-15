@@ -8,21 +8,25 @@ public class CharacterScript : MonoBehaviour {
     public Material OnPhone;
     public Material NotOnPhone;
 
+    public CharacterScript RecursiveCharacter;
+
     private SpriteRenderer SpriteRend;
 
     private void Start()
     {
-       // SpriteRend = this.GetComponent<SpriteRenderer>();
+
     }
     public void SetOnPhone()
     {
-        print("On passe sur notre téléphone !!");
-        //SpriteRend.sprite = OnPhone;
         MeshRend.sharedMaterial = OnPhone;
+        if(RecursiveCharacter != null)
+            RecursiveCharacter.SetOnPhone();
     }
 
     public void SetNotOnPhone()
     {
         MeshRend.material = NotOnPhone;
+        if (RecursiveCharacter != null)
+            RecursiveCharacter.SetNotOnPhone();
     }
 }

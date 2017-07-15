@@ -1,4 +1,4 @@
-MSG;B;3.0;Bonjour,
+MSG;B;10.0;Bonjour,
  Je m'appelle Vanessa et je suis étudiante en troisième année de droit. On a emménagé avant-hier avec ma colocataire Tasha et je suis votre nouvelle voisine. On s'est peut-être déjà croisé•es ou parlé•es mais je tenais à me présenter. 
  J'espère qu'on pourra vite se rencontrer :3
  
@@ -10,7 +10,7 @@ MSG;B;3.0;Bonjour,
 -> paswelcome
 
 === welcome ===
-- MSG;B;2.0;Hey, tu es le premier à répondre à mon message ! En réalité je ne suis pas sûre d'avoir beaucoup de succès mais je voulais innover. Je ne connais personne dans cette ville, pas même ma nouvelle coloc, que je viens tout juste de rencontrer.
+- MSG;B;2.0;Hey, tu es le premier à répondre à mon message ! En réalité je ne suis pas sûre d'avoir beaucoup de succès mais je voulais innover. Je ne connais personne dans cette ville, pas même ma nouvelle coloc.
 * [J'espère que tu vas t'adapter]MSG;A;2.0;J'espère que ça va bien se passer et que tout le monde va te répondre :)
 -> ahmerde
 * [C'est déstabilisant]MSG;A;3.0;C'est plutôt déstabilisant comme présentations, mais au moins ça change de voir les gens passer sans même connaître leur prénom
@@ -43,14 +43,14 @@ MSG;B;3.0;Bonjour,
 ->stevenuniverse
 
 === stevenuniverse ===
-- MSG;B;2.0;Oui, si j'étais plus jeune et plus opé sur la couture, je pense que mon cosplay de Garnett aurait déjà sa place dans mon dressing !!
+- MSG;B;2.0;Oui, si je savais coudre correctement et que j'étais plus adroite pour ça, je pense que mon cosplay de Garnett aurait déjà sa place dans mon dressing !!
 * [Déguisement] Haha, je comprends ;)
 ->cosplay2
 * [Steven Univers] Je suis fan aussi :D
 ->cosplay
 
 === cosplay ===
-- MSG;B;5.0;C'est qui ton perso préféré ?
+- MSG;B;3.5;C'est qui ton perso préféré ?
 * [Pearl] MSG;A;3.0;Pearl bien évidemment :D
 ->cosplay3
 * [Steven] MSG;A;3.0;Steven ;)
@@ -93,7 +93,7 @@ MSG;B;3.0;Bonjour,
 ->drag2
 
 === drag2 ===
--  MSG;B;2.0;Hey, mais c'est trop cool, tu te produis où ? Je pourrais venir une fois ? Please
+-  MSG;B;3.5;Hey, mais c'est trop cool, tu te produis où ? Je pourrais venir une fois ? Please :3
 * [Oui bien sur] MSG;A;3.0;Bah j'ai un spectacle ce soir, t'as qu'à venir avec ta coloc :)
 ->bonnefin
 * [Je sais pas trop] MSG;A;3.0;Je sais pas trop
@@ -101,9 +101,9 @@ MSG;B;3.0;Bonjour,
 
 === bonnefin2 ====
 - MSG;B;4.0;Alleeeeeez
-- MSG;A;3.0;Ok ça roule, j'ai un spectacle ce soir. Tu pourras venir si tu veux ;)
+- MSG;A;5.5;Ok ça roule, j'ai un spectacle ce soir. Tu pourras venir si tu veux ;)
 ->END
 
 === bonnefin ====
-- MSG;B;3.0;Trop bien, merci et à ce soir ;)
+- MSG;B;5.5;Trop bien, merci et à ce soir ;)
 ->END

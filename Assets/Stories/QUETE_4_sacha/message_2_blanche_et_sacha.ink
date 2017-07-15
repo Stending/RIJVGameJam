@@ -1,20 +1,22 @@
-* [Bonjour] MSG;A;10.0;Bonjour
+VAR mami = 0
+
+* [Bonjour] MSG;A;7.0;Bonjour
 -> bonjour
 
 === bonjour ===
-- MSG;A;4.0;Je suis désolé pour les msg madame. Je faisais sa juste pour plaisanter 
-* [Continuer] MSG;A;7.0;
+- MSG;A;4.0;Je ss dsl pour les msg madame. Je faisai sa juste pour plaisanté
+* [Continuer]
 -> continuer
 
 === continuer ===
-- MSG;A;4.0;Je pensai pas ke sa vous blesseré.
-* [Continuer] MSG;A;4.0; si je pouvai revenir en arrière je le ferai pa
+- MSG;A;4.0;Je pensai pas ke sa vous blesseré
+* [Continuer]MSG;A.4.0; si je pouvai revenir en arrière je le ferai pa
 ->reponse
 
 === reponse ===
-- MSG;A;7.0;Je suis vrément désolé...
+- MSG;A;6.0;Je suis vrément désolé...
 - MSG;B;4.0;Le problème c'est qu'on ne peux pas revenir en arrière, mais il est possible de se racheter
-* [Comment ?] Comment ?
+* [Comment ?]MSG;A;3.5;Comment ?
 -> comment
 
 === comment ===
@@ -31,7 +33,8 @@
 -> espace2
 
 === espace2 ===
-- MSG;B;3.0;Je suis sur que ta grand-mère, avait confiance en toi
+- MSG;B;3.0;Je suis sûr que ta grand-mère, avait confiance en toi
+~ mami = 1
 * [Comment vous savez ?] MSG;A;3.0;Comment vous savez ?
 -> comment2bis
 
@@ -40,6 +43,7 @@
 * [Comment ?] MSG;A;3.0;Comment vous faites ça ?
 -> continuer3
 * [Grand-mère] MSG;A;3.0;Alors vous savez pr ma mami ?
+~ mami = 1
 -> comment3
 
 === comment2bis ===
@@ -56,22 +60,28 @@
 
 === sorciere ===
 - MSG;B;5.0;Ta mami m'a dis qu'elle était plutôt déçu de ce genre de comportement.
+~ mami = 1
+* [S'excuser]jvé arreter promi mé dite moi pour mami, elle é ou ?
+-> continuer4
 
-* [Mami ?] Ma mami ?
--> continuer3
-
-=== continuer3 ===
+=== continuer34 ===
 - MSG;B;5.0;Certaines personnes arrivent à parler avec les personnes qui sont parties, mais on les appelle des sorcières, non ?
 * [Demander] MSG;A;5.0;Estceque vous savait ou elle est ?
 ->continuer4
 
+=== continuer35 ===
+- MSG;B;5.0;J'ai quelque super-pouvoirs... Par exemple, ta grand-mère m'a parlé en rêve...
+~ mami = 1
+* [Mami ?] MSG;A;5.0;Ma mami ?
+->continuer3
+
 === continuer4 ===
-- MSG;B;5.0;Dans l'espace mon garçon, je sais pas si on peut la contacter de là-bas, c'est si vaste et toutes ces lumières doivent dérouter les fantômes, tu ne penses pas ?
-* [Découragé] Vous avez réson c bcp trop grand...
+- MSG;B;5.0;Dans l'espace mon garçon, je ne sais pas si on peut la contacter de là-bas, c'est si vaste et toutes ces lumières doivent dérouter les fantômes, tu ne penses pas ?
+* [Découragé] MSG;A;3.0;Vous avez réson c bcp trop grand...
 ->continuer4bis
-* [Demander] MSG;A;5.0;Esce ke vous penser que je pourrez au moins essayé ?
+* [Demander] MSG;A;4.0;Esce ke vous penser que je pourrez au moins essayé ?
 ->jepenseoui
-* [SORCIÈRE !] MSG;A;5.0.0;JE LE SAVEZ VOUS ÊTES VRAIMENT UNE SORCIÈRE !
+* [SORCIÈRE !] MSG;A;4.0;JE LE SAVEZ VOUS ÊTES VRAIMENT UNE SORCIÈRE !
 -> sorciere
 
 === continuer4bis ===
@@ -80,6 +90,16 @@
 ->jepenseoui
 
 === jepenseoui ===
-- MSG;B;3.0;Oui, bien sur, juste demande à tes parents si tu peux passer chez moi et on essayera de lui parler. Tes excuses sont sincères je pense qu'on peux être de nouveau de bon voisin
+- MSG;B;3.0;Oui, bien sur, juste demande à tes parents si tu peux passer chez moi et on essayera de lui parler. Tes excuses sont sincères je pense qu'on peut être de nouveau de bon voisin
 * [Remercier] Merci grand-mère
 -> END
+
+
+=== continuer3 ===
+{ mami == 1:
+    -> continuer34
+    - else:
+    -> continuer35
+}
+
+->END

@@ -15,7 +15,11 @@ public class Contact{
     public Story SmsStory;
 
     public Conversation Conv;
-        
+    public bool InvisibleAtFirst = false;
+    public List<int> Conditions = new List<int>();
+    public bool Finished = false;
+
+    public bool Readable = false;
 
 	public void Init () {
     //    Conv = new Conversation();

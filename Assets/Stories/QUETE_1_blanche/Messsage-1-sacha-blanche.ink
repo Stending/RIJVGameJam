@@ -1,4 +1,4 @@
-MSG;B;2.5;Sale sorcière , tu pu le pipi de chat
+MSG;B;8.0;Sale sorcière , tu pu le pipi de chat
 
 *   [Ne pas répondre]
 

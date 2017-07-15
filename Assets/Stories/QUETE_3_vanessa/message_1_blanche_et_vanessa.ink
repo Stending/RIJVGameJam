@@ -1,10 +1,10 @@
-MSG;B;3.0;Bonjour,
+MSG;A;3.0;Bonjour,
  Je m'appelle Vanessa et je suis étudiante en troisième année de droit. On a emménagé avant-hier avec ma colocataire Tasha et je suis votre nouvelle voisine, on s'est peut-être déjà croisé•e ou parlé•e mais du coup je tenais à me présenter. 
  J'espère qu'on pourra vite se rencontrer :3
  
  Ps: J'ai récupéré votre numéro grâce à la gardienne, j'espère que ça ne pose pas de soucis.
 
-* [Boujour] Bonjour !
+* [Bonjour] Bonjour !
 -> relou
 * [Ne pas envoyer de message] 
 -> END

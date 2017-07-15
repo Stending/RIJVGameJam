@@ -27,7 +27,7 @@ public class PhoneScript : MonoBehaviour {
     public Object ContactButtonPrefab;
 
     public List<Contact> Contacts;
-    public List<Button> ContactButtons;
+    public List<ContactButtonScript> ContactButtons;
     public Transform ContactListTransform;
 
     public List<Text> TextsToColor;
@@ -40,7 +40,7 @@ public class PhoneScript : MonoBehaviour {
         Appear();
         print("On se met à la position" + SourceTrans.localPosition);
         
-        ContactButtons = new List<Button>();
+        ContactButtons = new List<ContactButtonScript>();
         LoadData();
 
         foreach(Text t in TextsToColor)
@@ -56,6 +56,15 @@ public class PhoneScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        if (Input.GetKeyDown("t"))
+        {
+            foreach(Contact c in Contacts)
+            {
+                c.Readable = true;
+                c.Finished = true;
+            }
+            UpdateButtons();
+        }
         //this.transform.LookAt(CameraTransform);
 		
 	}
@@ -71,12 +80,51 @@ public class PhoneScript : MonoBehaviour {
         }
     }
 
+    public void UpdateButtons()
+    {
+        for(int i = 0; i < ContactButtons.Count; i++)
+        {
+            ContactButtonScript cbs = ContactButtons[i];
+            Contact c = Contacts[i];
+
+            if (c.Finished)
+            {
+                cbs.Unhighlight();
+            }else if (ConditionsValidated(c.Conditions))
+            {
+                cbs.Highlight();
+                c.Readable = true;
+                if (c.InvisibleAtFirst)
+                    cbs.Unhide();
+            }
+            else
+            {
+                c.Readable = false;
+                if (c.InvisibleAtFirst)
+                    cbs.Hide();
+                else
+                    cbs.Unhighlight();
+            }
+            
+        }
+    }
+
+    public bool ConditionsValidated(List<int> conds)
+    {
+        foreach(int i in conds)
+        {
+            if (!Contacts[i].Finished)
+                return false;
+        }
+        return true;
+    }
 
     public void InstantiateContact(int id, Contact c)
     {
         GameObject go = Instantiate(ContactButtonPrefab, ContactListTransform) as GameObject;
         ContactButtonScript cbs = go.GetComponent<ContactButtonScript>();
         cbs.SetInfos(id, c.Name, c.PhoneNumber, this);
+        ContactButtons.Add(cbs);
     }
 
     public Contact GetContact(string name)
@@ -98,6 +146,7 @@ public class PhoneScript : MonoBehaviour {
             ContactMenuAnim.SetBool("Active", true);
             MessageMenuAnim.SetBool("Active", false);
             mode = "ContactMenu";
+            UpdateButtons();
         }
     }
 
@@ -118,7 +167,7 @@ public class PhoneScript : MonoBehaviour {
         
         if (mode == "ContactMenu")
         {
-            if (contactId == NextContact)
+            if (Contacts[contactId].Readable)
             {
                 NavBarAnim.SetBool("Active", false);
                 ContactMenuAnim.SetBool("Active", false);
@@ -155,11 +204,21 @@ public class PhoneScript : MonoBehaviour {
     }
     public void SwitchNextContact()
     {
-        NextContact++;
-        if(NextContact >= Contacts.Count)
+        UpdateButtons();
+        if(AllContactsFinished())
         {
             PhoneFinished();
         }
+    }
+
+    public bool AllContactsFinished()
+    {
+        foreach (Contact c in Contacts)
+        {
+            if (!c.Finished)
+                return false;
+        }
+        return true;
     }
 
     public void PlaySmsSound()
@@ -190,11 +249,12 @@ public class PhoneScript : MonoBehaviour {
     public void Appear()
     {
         StopAllCoroutines();
-        StartCoroutine(GoToSpotIn(AppearedTrans, 0.8f));
+        StartCoroutine(GoToSpotIn(SourceTrans, AppearedTrans, 0.8f));
     }
-    public void LeaveToBottom()
+    public void Disappear()
     {
-        PhoneAnim.SetBool("Active", false);
+        StopAllCoroutines();
+        StartCoroutine(GoToSpotIn(AppearedTrans, SourceTrans, 0.8f));
     }
 
     public void DisableIn(float sec)
@@ -208,15 +268,15 @@ public class PhoneScript : MonoBehaviour {
     }
 
 
-    public void GoToSpot(Transform trans, float time)
+    public void GoToSpot(Transform from, Transform trans, float time)
     {
         StopAllCoroutines();
-        StartCoroutine(GoToSpotIn(trans, time));
+        StartCoroutine(GoToSpotIn(from, trans, time));
 
     }
-    public IEnumerator GoToSpotIn(Transform trans, float time)
+    public IEnumerator GoToSpotIn(Transform from, Transform trans, float time)
     {
-        transform.localPosition = SourceTrans.localPosition; transform.localEulerAngles = SourceTrans.localEulerAngles; transform.localScale = SourceTrans.localScale;
+        transform.localPosition = from.localPosition; transform.localEulerAngles = from.localEulerAngles; transform.localScale = from.localScale;
         Vector3 startPos = this.transform.localPosition;
         Vector3 goalPos = trans.localPosition;
         Vector3 startRot = this.transform.localEulerAngles;

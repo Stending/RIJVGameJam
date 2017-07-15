@@ -20,7 +20,7 @@ VAR mechant = 0
 
 === blanche ===
 - MSG;B;2.0; Je t'écoute
-* [Remords] Je suis vraiment dsl de ce ke jai fait l'autre jour, je navai pas l'impression de faire du mal à Mme Spitz, pour moi s'été juste des blagues koi, du trolling
+* [Remords]MSG;A;5.5;Je suis vraiment dsl de ce ke jai fait l'autre jour, je navai pas l'impression de faire du mal à Mme Spitz, pour moi s'été juste des blagues koi, du trolling
 -> fin1
 * [Ne pas répondre] MSG;A;4.0;
 -> fin1
@@ -47,15 +47,17 @@ VAR mechant = 0
 -> blanche
 
 === findeconversation3 ===
-- MSG;B;3.0;Vraiment ne t'en fait pas, tu peux réparer ton erreur, j'en suis certain.
-* [Merci] à plus tard
+- MSG;B;3.0;Vraiment ne t'en fais pas, tu peux réparer ton erreur, j'en suis certain.
+* [Merci] Merci, a+
+-MSG;B;3.0;De rien, j'espère que tu feras les bons choix ;)
 -> END
 
 === findeconversationbad ===
-- MSG;B;3.0;Je pense que tu devrais en parler avec elle un jour histoire de remettre les choses à plat. En générale tu devrais réfléchir à la manière dont tu juges les gens, parfois on ne comprend pas les choses et on se comporte mal avec les autres à cause de ça, essaye de ne pas recommencer ce que tu as fait avec Blanche avec d'autres personnes...
-* [Merci] à plus tard
+- MSG;B;3.0;Je pense que tu devrais en parler avec elle un jour histoire de remettre les choses à plat. En général tu devrais réfléchir à la manière dont tu juges les gens, parfois on ne comprend pas les choses et on se comporte mal avec les autres à cause de ça, essaye de ne pas recommencer ce que tu as fait avec Blanche avec d'autres personnes...
+* [Merci] merci a+
+-MSG;B;3.0;De rien, j'espère que tu comprends ;)
 -> END
-* [Ne pas répondre] MSG;A;4.0;
+* [Ne pas répondre]
 ->END
 
 === fin1 ===
