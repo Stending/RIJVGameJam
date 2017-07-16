@@ -30,6 +30,12 @@ public class MenuScript : MonoBehaviour {
         AudioManager.Instance.LowerSound(0.3f, 1.0f);
         Logo.Disappear();
         Background.Disappear();
+        Invoke("Disable", 5.0f);
+    }
+
+    private void Disable()
+    {
+        this.gameObject.SetActive(false);
     }
     public void QuitGame()
     {

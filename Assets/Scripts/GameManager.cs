@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
     public static GameManager Instance = null;
 
     public CameraScript Camera;
-
+    
     public RoomScript[] Rooms = new RoomScript[4];
     public PhoneScript[] Phones = new PhoneScript[4];
     public CharacterScript[] Characters = new CharacterScript[4];
@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour {
         Invoke("NextDay", 5.0f);
     }
 
+
     public void LargeView()
     {
         Camera.GoToSpot(LargeViewSpot, 4.0f);
@@ -77,7 +78,7 @@ public class GameManager : MonoBehaviour {
         if(chara == Character.Blanche)
         {
             Invoke("TutoAppear", 2.0f);
-            Invoke("TutoDisappear", 10.0f);
+            CurrentPhone.ContactOpened += EndTuto;
         }
         if(chara == Character.Blanche ||chara == Character.Gael)
         {
@@ -94,11 +95,23 @@ public class GameManager : MonoBehaviour {
         Characters[(int)CurrentCharacter].SetOnPhone();
     }
 
+    public void SetCurrentCharacterOnPhone(bool on)
+    {
+        if (on)
+            Characters[(int)CurrentCharacter].SetOnPhone();
+        else
+            Characters[(int)CurrentCharacter].SetNotOnPhone();
+    }
+
     public void TutoAppear()
     {
         TutoScreenAnim.SetBool("Active", true);
     }
 
+    public void EndTuto()
+    {
+        Invoke("TutoDisappear", 3.0f);
+    }
     public void TutoDisappear()
     {
         TutoScreenAnim.SetBool("Active", false);
@@ -145,7 +158,7 @@ public class GameManager : MonoBehaviour {
        for(int i = 0; i < 4; i++)
         {
             Character currentChara = (Character)i;
-            if (currentChara != chara) { 
+            if (currentChara != chara) {
                 Phones[i].ChangeConversationWith(chara, originPhone.GetConversationFrom(currentChara).InvertAuthors());
             }
         }
@@ -155,7 +168,7 @@ public class GameManager : MonoBehaviour {
     {
         ZoomTo(CurrentCharacter);
         AudioManager.Instance.SetPiste((int)CurrentCharacter + 1, 2.0f);
-        Invoke("StartCurrentPhone", 2.0f);
+        Invoke("StartCurrentPhone", 4.0f);
     }
 
     public void StartCurrentPhone()
@@ -165,7 +178,7 @@ public class GameManager : MonoBehaviour {
 
     public void ZoomTo(Character chara)
     {
-        Camera.GoToSpot(CharacterViewSpots[(int)chara], 2.0f);
+        Camera.GoToSpot(CharacterViewSpots[(int)chara], 4.0f);
     }
 
 

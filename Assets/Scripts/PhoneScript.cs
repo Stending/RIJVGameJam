@@ -8,6 +8,7 @@ public class PhoneScript : MonoBehaviour {
 
     public delegate void ClassicEvent();
     public event ClassicEvent PhoneFinished;
+    public event ClassicEvent ContactOpened;
     public Transform SourceTrans;
     public Transform AppearedTrans;
     public string mode = "Desktop";
@@ -38,7 +39,6 @@ public class PhoneScript : MonoBehaviour {
     // Use this for initialization
 	void Start () {
         Appear();
-        print("On se met à la position" + SourceTrans.localPosition);
         
         ContactButtons = new List<ContactButtonScript>();
         LoadData();
@@ -127,6 +127,8 @@ public class PhoneScript : MonoBehaviour {
     {
         if (mode == "Desktop")
         {
+            if (ContactOpened != null)
+                ContactOpened();
             NavBarAnim.SetBool("Active", false);
             ContactMenuAnim.SetBool("Active", true);
             MessageMenuAnim.SetBool("Active", false);
@@ -139,6 +141,7 @@ public class PhoneScript : MonoBehaviour {
     {
         if (mode == "InConversation")
         {
+            GameManager.Instance.SetCurrentCharacterOnPhone(false);
             NavBarAnim.SetBool("Active", false);
             ContactMenuAnim.SetBool("Active", true);
             MessageMenuAnim.SetBool("Active", false);
@@ -154,6 +157,7 @@ public class PhoneScript : MonoBehaviour {
         {
             if (Contacts[contactId].Readable)
             {
+                GameManager.Instance.SetCurrentCharacterOnPhone(true);
                 NavBarAnim.SetBool("Active", false);
                 ContactMenuAnim.SetBool("Active", false);
                 MessageMenuAnim.SetBool("Active", true);
@@ -192,9 +196,15 @@ public class PhoneScript : MonoBehaviour {
         UpdateButtons();
         if(AllContactsFinished())
         {
-            PhoneFinished();
+            Invoke("PhoneFinishedCall", 2.0f);
         }
     }
+
+    private void PhoneFinishedCall()
+    {
+        PhoneFinished();
+    }
+
 
     public bool AllContactsFinished()
     {
@@ -212,6 +222,7 @@ public class PhoneScript : MonoBehaviour {
     }
     public void HomeButton()
     {
+        GameManager.Instance.SetCurrentCharacterOnPhone(false);
         NavBarAnim.SetBool("Active", true);
         ContactMenuAnim.SetBool("Active", false);
         MessageMenuAnim.SetBool("Active", false);
@@ -278,18 +289,43 @@ public class PhoneScript : MonoBehaviour {
             startRot = new Vector3(-360 + startRot.x, startRot.y, startRot.z);
         if (goalRot.x > 180)
             goalRot = new Vector3(-360 + goalRot.x, goalRot.y, goalRot.z);
-        for (float t = 0; t < time; t += Time.deltaTime)
+
+        for (float f = 0; f < time; f += Time.deltaTime)
         {
 
-            this.transform.localPosition = Vector3.Lerp(startPos, goalPos, t / time);
-            this.transform.localEulerAngles = Vector3.Lerp(startRot, goalRot, t / time);
-            this.transform.localScale = Vector3.Lerp(startScale, goalScale, t / time);
+
+            float posX = tweenFunction(f, startPos.x, goalPos.x - startPos.x, time);
+            float posY = tweenFunction(f, startPos.y, goalPos.y - startPos.y, time);
+            float posZ = tweenFunction(f, startPos.z, goalPos.z - startPos.z, time);
+
+            float rotX = rotTweenFunction(f, startRot.x, goalRot.x - startRot.x, time);
+            float rotY = rotTweenFunction(f, startRot.y, goalRot.y - startRot.y, time);
+            float rotZ = rotTweenFunction(f, startRot.z, goalRot.z - startRot.z, time);
+
+            Vector3 newPos = new Vector3(posX, posY, posZ);
+            Vector3 newRot = new Vector3(rotX, rotY, rotZ);
+            this.transform.localPosition = newPos;
+            this.transform.localEulerAngles = newRot;
+
+            this.transform.localScale = Vector3.Lerp(startScale, goalScale, f / time);
+
             yield return null;
         }
 
         this.transform.localPosition = goalPos;
         this.transform.localEulerAngles = goalRot;
         this.transform.localScale = goalScale;
+    }
+
+    private float tweenFunction(float t, float b, float c, float d)
+    {
+        return Tween.EaseOutCirc(t, b, c, d);
+        //return Tween.EaseInBack(t, b, c, d);
+    }
+
+    private float rotTweenFunction(float t, float b, float c, float d)
+    {
+        return Tween.EaseOutCirc(t, b, c, d);
     }
 
 

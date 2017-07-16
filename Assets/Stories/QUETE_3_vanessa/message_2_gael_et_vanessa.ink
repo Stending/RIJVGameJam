@@ -20,6 +20,7 @@ VAR boulot = 0
 ~ harcel = 1
 ->harcelement
 * [Pas de soucis] MSG;A;3.0;Je suis rentrée sans problème ne t'inquiète pas
+~ harcel = 1
 ->acool2
 
 === acool2 ===
