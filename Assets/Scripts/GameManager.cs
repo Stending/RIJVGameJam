@@ -8,7 +8,8 @@ public enum Character
     Blanche,
     Gael,
     Vanessa,
-    Sacha
+    Sacha,
+    et
 }
 
 public class GameManager : MonoBehaviour {
@@ -34,6 +35,8 @@ public class GameManager : MonoBehaviour {
 
     public Character CurrentCharacter;
     public Character LinkedCharacter;
+
+    public GameObject etHouse;
 
     public Dictionary<string, int> triggers;
 	// Use this for initialization
@@ -164,6 +167,16 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void Unlocket()
+    {
+        foreach(PhoneScript p in Phones)
+        {
+            Contact c = p.GetContact(Character.et);
+            if (c != null)
+                c.Ignore = false;
+        }
+        etHouse.SetActive(true);
+    }
     public void NextDay()
     {
         ZoomTo(CurrentCharacter);

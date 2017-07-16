@@ -20,6 +20,7 @@ public class Contact{
     public bool Finished = false;
 
     public bool Readable = false;
+    public bool Ignore = false;
 
 	public void Init () {
     //    Conv = new Conversation();

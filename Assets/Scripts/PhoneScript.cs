@@ -59,6 +59,8 @@ public class PhoneScript : MonoBehaviour {
         int i = 0;
         foreach(Contact c in Contacts)
         {
+            if (c.Ignore)
+                continue;
             InstantiateContact(i, c);
             c.Init();
             i++;
@@ -210,7 +212,7 @@ public class PhoneScript : MonoBehaviour {
     {
         foreach (Contact c in Contacts)
         {
-            if (!c.Finished)
+            if (!c.Finished && !c.Ignore)
                 return false;
         }
         return true;

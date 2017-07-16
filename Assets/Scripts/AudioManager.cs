@@ -10,6 +10,9 @@ public class AudioManager : MonoBehaviour
     public int CurrentPist = -1;
     public float time = 0;
 
+
+    public AudioClip etSound;
+
     void Awake()
     {
         if (Instance == null)
@@ -115,5 +118,10 @@ public class AudioManager : MonoBehaviour
     public void PlaySfx(AudioClip ac)
     {
         SfxSource.PlayOneShot(ac);
+    }
+
+    public void PlayetSound()
+    {
+        SfxSource.PlayOneShot(etSound);
     }
 }

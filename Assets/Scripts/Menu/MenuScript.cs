@@ -17,8 +17,12 @@ public class MenuScript : MonoBehaviour {
     public MenuSlideScript MenuSlides;
     public List<Transform> Spots = new List<Transform>();
     public int CenterSpotId = 3;
-	// Use this for initialization
-	void Start () {
+
+    public bool etUnlock = false;
+
+    public GameObject etIcon;
+    // Use this for initialization
+    void Start () {
         //print("test : " + SystemInfo.batteryLevel);
         AudioManager.Instance.SetPiste(0, 1.0f);
         FullscreenToggle.isOn = Screen.fullScreen;
@@ -52,7 +56,18 @@ public class MenuScript : MonoBehaviour {
             NextSlide();
         }
 	}
-
+    
+    public void Unlocket()
+    {
+        if (!etUnlock)
+        {
+            etUnlock = true;
+            AudioManager.Instance.PlayetSound();
+            etIcon.SetActive(true);
+            GameManager.Instance.Unlocket();
+        }
+        
+    }
     public void NextSlide()
     {
         if(CurrentSlide < MenuSlides.Count-1)
