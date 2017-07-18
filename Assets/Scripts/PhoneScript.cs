@@ -296,7 +296,7 @@ public class PhoneScript : MonoBehaviour {
         {
 
 
-            float posX = tweenFunction(f, startPos.x, goalPos.x - startPos.x, time);
+            /*float posX = tweenFunction(f, startPos.x, goalPos.x - startPos.x, time);
             float posY = tweenFunction(f, startPos.y, goalPos.y - startPos.y, time);
             float posZ = tweenFunction(f, startPos.z, goalPos.z - startPos.z, time);
 
@@ -307,8 +307,11 @@ public class PhoneScript : MonoBehaviour {
             Vector3 newPos = new Vector3(posX, posY, posZ);
             Vector3 newRot = new Vector3(rotX, rotY, rotZ);
             this.transform.localPosition = newPos;
-            this.transform.localEulerAngles = newRot;
+            this.transform.localEulerAngles = newRot;*/
 
+
+            this.transform.localPosition = Vector3.Lerp(startPos, goalPos, f / time);
+            this.transform.localEulerAngles = Vector3.Lerp(startRot, goalRot, f / time);
             this.transform.localScale = Vector3.Lerp(startScale, goalScale, f / time);
 
             yield return null;

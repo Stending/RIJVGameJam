@@ -19,6 +19,8 @@ public class MenuScript : MonoBehaviour {
     public int CenterSpotId = 3;
 
     public bool etUnlock = false;
+    public int etFound = 0;
+    public int nbet = 3;
 
     public GameObject etIcon;
     // Use this for initialization
@@ -59,12 +61,30 @@ public class MenuScript : MonoBehaviour {
     
     public void Unlocket()
     {
-        if (!etUnlock)
+        if (!etUnlock )
         {
             etUnlock = true;
             AudioManager.Instance.PlayetSound();
             etIcon.SetActive(true);
             GameManager.Instance.Unlocket();
+        }
+
+    }
+    public void Foundetet(SecreetScript ses)
+    {
+        if (!etUnlock && !ses.Found)
+        {
+            ses.Found = true;
+            etFound++;
+            ses.SetFound(etFound, nbet);
+            ses.gameObject.SetActive(true);
+            if (etFound == nbet)
+            {
+                //etUnlock = true;
+                AudioManager.Instance.PlayetSound();
+                GameManager.Instance.Unlocket();
+            }
+            
         }
         
     }

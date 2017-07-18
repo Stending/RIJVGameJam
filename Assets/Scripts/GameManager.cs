@@ -14,6 +14,7 @@ public enum Character
 
 public class GameManager : MonoBehaviour {
 
+    public static bool DEBUG = true;
     public static GameManager Instance = null;
 
     public CameraScript Camera;
@@ -125,6 +126,11 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape)){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+        if (Input.GetKeyDown("p") && DEBUG)
+        {
+            
+            FinishPhone();
+        }
 	}
 
     public void FinishPhone()
@@ -152,6 +158,7 @@ public class GameManager : MonoBehaviour {
             Invoke("EndView", 8.0f);
             EndBackground.SetActive(true);
             print("FINI");
+            DayTextAnnounces.SwitchToText(5);
         }
     }
 
@@ -180,7 +187,10 @@ public class GameManager : MonoBehaviour {
     public void NextDay()
     {
         ZoomTo(CurrentCharacter);
-        AudioManager.Instance.SetPiste((int)CurrentCharacter + 1, 2.0f);
+        if(CurrentCharacter == Character.Blanche)
+            AudioManager.Instance.SetPiste((int)CurrentCharacter + 1, 4.0f);
+        else
+            AudioManager.Instance.SetPiste((int)CurrentCharacter + 1, 2.0f);
         Invoke("StartCurrentPhone", 4.0f);
     }
 

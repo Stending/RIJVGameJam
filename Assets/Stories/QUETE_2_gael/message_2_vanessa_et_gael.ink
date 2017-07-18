@@ -5,6 +5,7 @@ MSG;B;10.0;Bonjour,
  PS : J'ai récupéré votre numéro grâce à la gardienne, j'espère que ça ne pose pas de soucis.
 
 * [Bienvenue]MSG;A;3.0;Hey, bienvenue !
+MSG;A;2.0;Je comptais passer te voir dans la journée !
 -> welcome
 * [Ne pas répondre]
 -> paswelcome
